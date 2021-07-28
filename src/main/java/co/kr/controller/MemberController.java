@@ -23,6 +23,7 @@ public class MemberController {
 	public String getRegist() throws Exception {
 	
 		logger.info("get regist");
+		System.out.println("get regist");
 	
 		return "/gameshop/admin/login/login"; // 로그인 페이지 이동
 	}
