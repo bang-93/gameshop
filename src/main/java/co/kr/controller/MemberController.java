@@ -13,7 +13,11 @@ import co.kr.vo.Member;
 
 @Controller
 public class MemberController {
+	
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
+	
+	
+	// 회원가입 처리중
 	
 	@Autowired
 	private MemberService memberservice;
