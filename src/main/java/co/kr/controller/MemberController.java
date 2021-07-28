@@ -19,6 +19,8 @@ public class MemberController {
 	
 	// 회원가입 처리중
 	
+	// 다른거 하는중
+	
 	@Autowired
 	private MemberService memberservice;
 	
