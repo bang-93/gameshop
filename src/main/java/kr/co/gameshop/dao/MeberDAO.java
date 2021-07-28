@@ -1,11 +1,11 @@
-package co.kr.dao;
+package kr.co.gameshop.dao;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import co.kr.vo.Member;
+import kr.co.gameshop.vo.Member;
 
 @Repository
 @Mapper

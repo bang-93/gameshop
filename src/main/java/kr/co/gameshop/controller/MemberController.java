@@ -1,4 +1,4 @@
-package co.kr.controller;
+package kr.co.gameshop.controller;
 
 
 import org.slf4j.Logger;
@@ -8,8 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import co.kr.service.MemberService;
-import co.kr.vo.Member;
+import kr.co.gameshop.service.MemberService;
+import kr.co.gameshop.vo.Member;
 
 @Controller
 public class MemberController {
@@ -26,7 +26,7 @@ public class MemberController {
 		logger.info("get regist");
 		System.out.println("get regist");
 	
-		return "/gameshop/admin/login/login"; // 로그인 페이지 이동
+		return "/gameshop/admin/login"; // 로그인 페이지 이동
 	}
 	
 	// 회원가입 요청

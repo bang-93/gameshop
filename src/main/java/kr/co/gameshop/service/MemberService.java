@@ -1,12 +1,11 @@
-package co.kr.service;
+package kr.co.gameshop.service;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import co.kr.vo.Member;
-
-import co.kr.dao.MeberDAO;
+import kr.co.gameshop.dao.MeberDAO;
+import kr.co.gameshop.vo.Member;
 
 @Service
 public class MemberService {

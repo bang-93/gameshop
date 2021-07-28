@@ -1,4 +1,4 @@
-package co.kr.controller;
+package kr.co.gameshop.controller;
 
 import java.text.DateFormat;
 import java.util.Date;

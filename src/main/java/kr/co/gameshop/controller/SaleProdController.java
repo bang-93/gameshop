@@ -1,4 +1,4 @@
-package co.kr.controller;
+package kr.co.gameshop.controller;
 
 import org.springframework.stereotype.Controller;
 

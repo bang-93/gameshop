@@ -1,4 +1,4 @@
-package co.kr.vo;
+package kr.co.gameshop.vo;
 
 import lombok.Data;
 

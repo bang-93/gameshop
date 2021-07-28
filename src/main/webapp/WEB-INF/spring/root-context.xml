@@ -29,8 +29,8 @@
         <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>
     </bean>
 
-    <context:component-scan base-package="co.kr.vo"></context:component-scan>
-    <context:component-scan base-package="co.kr.dao"></context:component-scan>
-    <context:component-scan base-package="co.kr.service"></context:component-scan>
+    <context:component-scan base-package="kr.co.gameshop.vo"></context:component-scan>
+    <context:component-scan base-package="kr.co.gameshop.dao"></context:component-scan>
+    <context:component-scan base-package="kr.co.gameshop.service"></context:component-scan>
 		
 </beans>
