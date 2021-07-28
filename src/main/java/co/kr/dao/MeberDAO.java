@@ -13,18 +13,30 @@ public class MeberDAO {
 	
 	@Autowired
 	SqlSession sqlsession;
-
+	
+	// 회원가입 요청
 	public boolean regist(Member member) throws Exception {
-		boolean flag=false;
-		
+		boolean flag=false;		
 		
 		try {
-			sqlsession.insert("co.kr.mappers.BoardMapper.memberRegist",member);
+			sqlsession.insert("co.kr.mappers.memberMapper.memberRegist",member);
 			flag=true;
 		} catch (Exception e) {
 			flag=false;
 		}
 		return flag;
+	}
+	
+	// 아이디 중복 체크
+	public int useridCheck(Member member) { 
+		
+		int useridCheck = 0;
+		
+		useridCheck = sqlsession.selectOne("co.kr.mappers.memberMapper.useridCheck", member);
+		System.out.println("useridCheck: "+useridCheck);
+		
+		
+		return useridCheck;
 	}
 	
 }
