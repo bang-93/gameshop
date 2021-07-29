@@ -9,9 +9,9 @@
 		<typeAlias type="kr.co.gameshop.vo.Member" alias="Member"/>
 	</typeAliases>
 	
-	<mappers>
-		<mapper resource="src/main/resources/mappers/memberMapper.xml"/>
-		<mapper resource="src/main/resources/mappers/gameMapper.xml"/>
-		<mapper resource="src/main/resources/mappers/boardMapper.xml"/>
-	</mappers>
+ 	<mappers>
+		<mapper resource="kr/co/gameshop/mybatis/memberMapper.xml"/>
+<!-- 		<mapper resource="src/main/resources/mappers/gameMapper.xml"/>
+		<mapper resource="src/main/resources/mappers/boardMapper.xml"/> -->
+	</mappers> 
 </configuration>

@@ -23,7 +23,7 @@ public class UserController {
 	// 로그인&회원가입 화면 호출
 	@RequestMapping(value = "/regist", method = RequestMethod.GET)
 	public String getRegist() throws Exception {
-	
+
 		logger.info("get regist");
 		System.out.println("get regist");
 	
