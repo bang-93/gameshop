@@ -19,7 +19,7 @@ public class MeberDAO {
 		boolean flag=false;		
 		
 		try {
-			sqlsession.insert("co.kr.mappers.memberMapper.memberRegist",member);
+			sqlsession.insert("kr.co.mappers.memberMapper.memberRegist",member);
 			flag=true;
 		} catch (Exception e) {
 			flag=false;
@@ -28,15 +28,15 @@ public class MeberDAO {
 	}
 	
 	// 아이디 중복 체크
-	public int useridCheck(Member member) { 
+	public int useridCheck(Member member) throws Exception{ 
 		
-		int useridCheck = 0;
+		int checkResult = 0;
 		
-		useridCheck = sqlsession.selectOne("co.kr.mappers.memberMapper.useridCheck", member);
-		System.out.println("useridCheck: "+useridCheck);
+		checkResult = sqlsession.selectOne("kr.co.mappers.memberMapper.useridCheck", member);
+		System.out.println("0=가입가능, 1=아이디중복: "+checkResult);
 		
 		
-		return useridCheck;
+		return checkResult;
 	}
 	
 }

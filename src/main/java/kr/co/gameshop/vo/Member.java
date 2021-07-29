@@ -10,4 +10,5 @@ public class Member {
 	private String mem_nickname;
 	private String mem_password;
 	private int mem_point;
+	private int useridCheck;
 }

@@ -7,6 +7,7 @@
 <title>GameShop : Login</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style_login.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 
@@ -44,19 +45,22 @@
 
 			<!--/// 회원가입 ///-->
 			<form id="register" action="/member/join/regist" method="post" class="input-group">
-				<input type="text" class="input-field" name="mem_userid" placeholder=" ID..." required>
+				<input type="text" id="userid" class="input-field-id" name="mem_userid" placeholder=" ID..." required>
+				<input type="button"  id="userid_check" class="input-field-id-check" value="중복체크"/>
 				<input type="email" class="input-field" name="mem_email" placeholder=" Email or Phone..." required>
 				<input type="nickname" class="input-field" name="mem_nickname" placeholder=" NickName..." required>
 				<input type="password" class="input-field" name="mem_password" placeholder=" Password..." required>
 				<input type="checkbox" class="checkbox">
 				<span>Terms and conditions</span>
 				<!-- 이용약관 -->
-				<button class="submit">REGISTER</button>
+				<input type="button" id="member_regist" class="submit" value="REGISTER"/>
+				<input type="hidden" id="user_id_check_flag"  value="N"/>
 			</form>
 		</div>
 	</div>
 
-	<script>
+	<script type="text/javascript">
+		// 로그인 & 회원가입 전환 버튼 좌표
 		var x = document.getElementById("login");
 		var y = document.getElementById("register");
 		var z = document.getElementById("btn");
@@ -72,7 +76,65 @@
 			y.style.left = "50px";
 			z.style.left = "120px";
 		}
-
+		
+		// 아이디 중복조회
+		$("#userid_check").click(function(){
+			console.log($("#userid").val() ," ---");
+			if($("#userid").val()==""){
+					alert("아이디를 입력하세요");
+			}else{				
+				$.ajax({
+					url : "/member/useridCheck",
+					type : "post",
+					dataType : "json",
+					data : {"mem_userid" : $("#userid").val()},
+					success : function(data){
+						console.log("data:",data);
+						if(data == 1){
+							$("#user_id_check_flag").val("N");
+							alert("중복된 아이디입니다. 다시 작성해주십시오");
+							$("#userid").val("")
+						}else if(data == 0){
+							
+							alert("가입가능한 아이디입니다.");
+							$("#user_id_check_flag").val("Y");
+						}
+					}
+				})
+			}
+		})
+		
+		// 회원가입
+		$("#member_regist").click(function(){
+			
+			if($("#user_id_check_flag").val()=="N")
+			{
+				
+				alert("중복체크를 해주세요");
+				
+			}
+			else if($("#user_id_check_flag").val()=="Y")
+			{
+				$.ajax({
+					url : "/member/join/regist",
+					type : "post",
+					dataType : "json",
+					data : $("#register").serialize(),
+					success : function(data){
+						
+						if(data == true){
+							
+							alert("회원가입이 완료되었습니다");
+						}else if(data == false){
+							alert("회웝가입에 실패하였습니다. 다시 입력해주십시오.");
+							
+						}
+					}
+				})
+			}
+		})		
+		
+		// 로그인 화면 배경영상
 		var video = document.getElementById("myVideo");
 	</script>
 </body>

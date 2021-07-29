@@ -16,16 +16,18 @@ public class MemberService {
 	//회원등록
 	public boolean regist(Member member) throws Exception {
 		boolean flag =false;
-		
-		// if 아이디 중복체크
-		int useridCheck = memberDAO.useridCheck(member);
 	
-		// if 중복없으면 회원등록  
-		if (useridCheck == 0) {
-			
+		// 회원등록  	
 			flag=memberDAO.regist(member);
-		}		
 		
 		return flag;
 	}	
+	
+	// 아이디 중복확인
+	public int useridCheck(Member member) throws Exception{
+		
+		int checkResult = memberDAO.useridCheck(member);
+		
+		return checkResult;
+	}
 }
