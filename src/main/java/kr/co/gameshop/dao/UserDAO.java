@@ -9,7 +9,7 @@ import kr.co.gameshop.vo.Member;
 
 @Repository
 @Mapper
-public class MeberDAO {
+public class UserDAO {
 	
 	@Autowired
 	SqlSession sqlsession;
@@ -19,7 +19,7 @@ public class MeberDAO {
 		boolean flag=false;		
 		
 		try {
-			sqlsession.insert("kr.co.mappers.memberMapper.memberRegist",member);
+			sqlsession.insert("Member.memberRegist",member);
 			flag=true;
 		} catch (Exception e) {
 			flag=false;
@@ -32,7 +32,7 @@ public class MeberDAO {
 		
 		int checkResult = 0;
 		
-		checkResult = sqlsession.selectOne("kr.co.mappers.memberMapper.useridCheck", member);
+		checkResult = sqlsession.selectOne("Member.useridCheck", member);
 		System.out.println("0=가입가능, 1=아이디중복: "+checkResult);
 		
 		

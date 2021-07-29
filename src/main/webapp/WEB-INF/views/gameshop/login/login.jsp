@@ -84,7 +84,7 @@
 					alert("아이디를 입력하세요");
 			}else{				
 				$.ajax({
-					url : "/member/useridCheck",
+					url : "/user/useridCheck",
 					type : "post",
 					dataType : "json",
 					data : {"mem_userid" : $("#userid").val()},
@@ -116,7 +116,7 @@
 			else if($("#user_id_check_flag").val()=="Y")
 			{
 				$.ajax({
-					url : "/member/join/regist",
+					url : "/user/join/regist",
 					type : "post",
 					dataType : "json",
 					data : $("#register").serialize(),

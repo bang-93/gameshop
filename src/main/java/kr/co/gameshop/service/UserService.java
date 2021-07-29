@@ -4,21 +4,21 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import kr.co.gameshop.dao.MeberDAO;
+import kr.co.gameshop.dao.UserDAO;
 import kr.co.gameshop.vo.Member;
 
 @Service
-public class MemberService {
+public class UserService {
 	
 	@Autowired
-	MeberDAO memberDAO;
+	UserDAO userDAO;
 	
 	//회원등록
 	public boolean regist(Member member) throws Exception {
 		boolean flag =false;
 	
 		// 회원등록  	
-			flag=memberDAO.regist(member);
+			flag=userDAO.regist(member);
 		
 		return flag;
 	}	
@@ -26,7 +26,7 @@ public class MemberService {
 	// 아이디 중복확인
 	public int useridCheck(Member member) throws Exception{
 		
-		int checkResult = memberDAO.useridCheck(member);
+		int checkResult = userDAO.useridCheck(member);
 		
 		return checkResult;
 	}
