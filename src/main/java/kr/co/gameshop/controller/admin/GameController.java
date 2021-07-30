@@ -26,7 +26,7 @@ public class GameController {
 		logger.info("post Game list");
 		
 		// 3단계
-		List gameList = gameService.selectAll();
+		List gameList = gameService.game_selectAll();
 		
 		// 4단계
 		model.addAttribute("gameList", gameList);

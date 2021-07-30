@@ -15,8 +15,8 @@ public class GameService {
 	@Inject
 	GameDAO gameDAO;
 	
-	public List selectAll() {
-		return gameDAO.selectAll();
+	public List game_selectAll() {
+		return gameDAO.game_selectAll();
 	}
 
 	public void delete(int game_id) {
