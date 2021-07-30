@@ -39,4 +39,10 @@ public class UserDAO {
 		return checkResult;
 	}
 	
+	// 로그인
+	public Member login(Member member) throws Exception{
+		
+		return sqlsession.selectOne("Member.login", member);
+	}
+	
 }

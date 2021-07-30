@@ -1,6 +1,5 @@
 package kr.co.gameshop.service;
 
-import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,4 +29,10 @@ public class UserService {
 		
 		return checkResult;
 	}
+	
+	// 로그인
+	public Member login(Member member) throws Exception{
+		return userDAO.login(member);
+	}
+	
 }
