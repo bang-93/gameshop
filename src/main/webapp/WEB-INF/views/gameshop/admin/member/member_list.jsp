@@ -266,17 +266,11 @@ $(document).ready(function(){
 		}
 	});
 });
-$("#del").click(function(){
-	alert("dd");
-	$.ajax({
-		url:"/admin/member/delete",
-		type:"POST"	
-	});
-});
+
 </script>
 </head>
 <body>
-<%-- 	<%@ include file="../inc/header.jsp" %> --%>
+<%@ include file="../../client/inc/header.jsp" %> 
     <div class="container">
 		<div class="table-responsive">
 			<div class="table-wrapper">
@@ -325,7 +319,7 @@ $("#del").click(function(){
 							<td><%=member.getMem_point() %></td>
 							<td>
 								<a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-								<a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+								<a href="#deleteEmployeeModal" onclick="deleteMember(<%= member.getMem_id()%>);" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
 							</td>
 						</tr>
 							<%} %> 
@@ -430,11 +424,33 @@ $("#del").click(function(){
 					</div>
 					<div class="modal-footer">
 						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-						<input type="button" class="btn btn-danger" value="Delete" id="del">
+						<input type="button" class="btn btn-danger" value="Delete" >
+						<input type="hidden" id="delMember_id">
 					</div>
 				</form>
 			</div>
 		</div>
 	</div>
 </body>
+<script>
+$("input[value='Delete']").click(function(){
+	var mem_id=$("#delMember_id").val();
+	
+	$.ajax({
+		url:"/admin/member/delete",
+		type:"POST",
+		data:{
+			"mem_id" : mem_id
+		},
+		success : function(result){
+			location.href="/admin/member/list";
+		}
+	});
+	
+});
+
+function deleteMember(member_id){
+	$("#delMember_id").val(member_id);
+}
+</script>
 </html>

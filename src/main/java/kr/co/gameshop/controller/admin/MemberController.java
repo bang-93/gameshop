@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.gameshop.service.MemberService;
 import kr.co.gameshop.vo.Member;
@@ -30,10 +31,11 @@ public class MemberController {
 	
 	//회원삭제
 	@RequestMapping(value="/member/delete", method = RequestMethod.POST)
+	@ResponseBody
 	public String delete(int mem_id) {
 		//3단계
 		memberService.delete(mem_id);
 		//회원목록 재요청
-		return "redirect:/gameshop/admin/member/member_list";
+		return "";
 	}
 }
