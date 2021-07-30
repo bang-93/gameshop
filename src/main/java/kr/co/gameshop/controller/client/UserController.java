@@ -1,4 +1,4 @@
-package kr.co.gameshop.controller.user;
+package kr.co.gameshop.controller.client;
 
 
 import javax.servlet.http.HttpServletRequest;

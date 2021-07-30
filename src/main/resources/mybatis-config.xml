@@ -11,7 +11,7 @@
 	
  	<mappers>
 		<mapper resource="kr/co/gameshop/mybatis/memberMapper.xml"/>
-<!-- 		<mapper resource="src/main/resources/mappers/gameMapper.xml"/>
-		<mapper resource="src/main/resources/mappers/boardMapper.xml"/> -->
+		<mapper resource="kr/co/gameshop/mybatis/gameMapper.xml"/>
+<!-- 		<mapper resource="kr/co/gameshop/mybatis/boardMapper.xml"/> -->
 	</mappers> 
 </configuration>
