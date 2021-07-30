@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8"%>
 <!-- ****** Header Area Start ****** -->
 <header class="header_area">
     <!-- Top Header Area Start -->

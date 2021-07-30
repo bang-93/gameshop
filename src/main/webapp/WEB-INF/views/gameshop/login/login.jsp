@@ -44,7 +44,7 @@
 			</form>
 
 			<!--/// 회원가입 ///-->
-			<form id="register" action="/member/join/regist" method="post" class="input-group">
+			<form id="register" action="/user/join/regist" method="post" class="input-group">
 				<input type="text" id="userid" class="input-field-id" name="mem_userid" placeholder=" ID..." required>
 				<input type="button"  id="userid_check" class="input-field-id-check" value="중복체크"/>
 				<input type="email" class="input-field" name="mem_email" placeholder=" Email or Phone..." required>

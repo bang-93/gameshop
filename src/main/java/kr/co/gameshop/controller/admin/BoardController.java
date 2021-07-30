@@ -17,7 +17,7 @@ public class BoardController {
 	private BoardService boardService;
 	
 	//게시글 조회
-	@GetMapping("/board/boardlist")
+	@GetMapping("/board/list")
 	public String getBoardList(Model model) {
 		//3단계
 		List boardList=boardService.selctAll();
@@ -27,8 +27,8 @@ public class BoardController {
 	}
 	
 	//게시글 삭제
-	@PostMapping("/board/del")
-	public String del(Board board) {
+	@PostMapping("/board/delete")
+	public String delete(Board board) {
 		//3단계
 		boardService.delete(board.getBoard_id());
 		
