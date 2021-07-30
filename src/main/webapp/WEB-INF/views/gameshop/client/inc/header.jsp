@@ -48,7 +48,7 @@
                                             <a class="dropdown-item" href="shop.html">FPS</a>
                                             <a class="dropdown-item" href="shop.html">공포</a>
                                             <a class="dropdown-item" href="shop.html">RPG</a>
-                                            <a class="dropdown-item" href="shop.html">시뮬레이션</a>
+                                            <a class="dropdown-item" href="shop.html">시뮬레이션</a>
                                         </div>
                                     </li>
                                     <li class="nav-item"><a class="nav-link" href="#">커뮤니티</a></li>
