@@ -84,7 +84,7 @@
 					alert("아이디를 입력하세요");
 			}else{				
 				$.ajax({
-					url : "/user/useridCheck",
+					url : "/client/user/useridCheck",
 					type : "post",
 					dataType : "json",
 					data : {"mem_userid" : $("#userid").val()},
@@ -116,7 +116,7 @@
 			else if($("#user_id_check_flag").val()=="Y")
 			{
 				$.ajax({
-					url : "/user/join/regist",
+					url : "/client/user/join/regist",
 					type : "post",
 					dataType : "json",
 					data : $("#register").serialize(),
@@ -125,6 +125,7 @@
 						if(data == true){
 							
 							alert("회원가입이 완료되었습니다");
+							location.href="/client/regist";
 						}else if(data == false){
 							alert("회웝가입에 실패하였습니다. 다시 입력해주십시오.");
 							
