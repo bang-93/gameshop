@@ -270,14 +270,14 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
-<%@ include file="../../client/inc/header.jsp" %> 
+<%@ include file="../../client/inc/admin_header.jsp" %> 
     <div class="container">
 		<div class="table-responsive">
 			<div class="table-wrapper">
 				<div class="table-title">
 					<div class="row">
 						<div class="col-xs-6">
-							<h2><b>회원정보</b></h2>
+							<h2><b>회원 관리</b></h2>
 						</div>
 <!-- 						<div class="col-xs-6">
 							<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Employee</span></a>
@@ -446,7 +446,6 @@ $("input[value='Delete']").click(function(){
 			location.href="/admin/member/list";
 		}
 	});
-	
 });
 
 function deleteMember(member_id){

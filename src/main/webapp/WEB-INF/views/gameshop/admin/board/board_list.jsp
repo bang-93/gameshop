@@ -1,8 +1,8 @@
-<%@page import="kr.co.gameshop.vo.Member"%>
+<%@page import="kr.co.gameshop.vo.Board"%>
 <%@page import="java.util.List"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%
-	List<Member> memList=(List)request.getAttribute("memList");
+	List<Board> boardList=(List)request.getAttribute("boardList");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -268,18 +268,19 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
+<%@ include file="../../client/inc/admin_header.jsp" %> 
     <div class="container">
 		<div class="table-responsive">
 			<div class="table-wrapper">
 				<div class="table-title">
 					<div class="row">
 						<div class="col-xs-6">
-							<h2><b>회원정보</b></h2>
+							<h2><b>게시판 관리</b></h2>
 						</div>
-						<div class="col-xs-6">
+<!-- 						<div class="col-xs-6">
 							<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Employee</span></a>
 							<a href="/admin/member/del" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Delete</span></a>						
-						</div>
+						</div> -->
 					</div>
 				</div>
 				<table class="table table-striped table-hover">
@@ -291,15 +292,15 @@ $(document).ready(function(){
 									<label for="selectAll"></label>
 								</span>
 							</th>
-							<th>회원번호</th>
-							<th>아이디</th>
-							<th>이메일</th>
-							<th>닉네임</th>
-							<th>포인트</th>
+							<th>게시글번호</th>
+							<th>제목</th>
+							<th>작성자</th>
+							<th>내용</th>
+							<th>작성일</th>
 						</tr>
 					</thead>
 					<tbody>
-							<%for(Member member:memList){ %>
+							<%for(Board board:boardList){ %>
 						<tr>
 							<td>
 								<span class="custom-checkbox">
@@ -307,21 +308,20 @@ $(document).ready(function(){
 									<label for="checkbox1"></label>
 								</span>
 							</td>
-							<td><%=member.getMem_id() %></td>
-							<td><%=member.getMem_userid() %></td>
-							<td><%=member.getMem_email() %></td>
-							<td><%=member.getMem_nickname() %></td>
-							<td><%=member.getMem_point() %></td>
+							<td><%=board.getBoard_id()%></td>
+							<td><%=board.getBoard_title() %></td>
+							<td><%=board.getBoard_writer() %></td>
+							<td><%=board.getBoard_content() %></td>
+							<td><%=board.getBoard_date() %></td>
 							<td>
 								<a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-								<a href="/admin/member/delete" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+								<a href="/admin/board/delete" onClick="deleteBoard(<%=board.getBoard_id() %>);" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
 							</td>
 						</tr>
 							<%} %> 
 					</tbody>
 				</table>
 				<div class="clearfix">
-					<div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
 					<ul class="pagination">
 						<li class="page-item disabled"><a href="#">Previous</a></li>
 						<li class="page-item"><a href="#" class="page-link">1</a></li>
@@ -411,20 +411,41 @@ $(document).ready(function(){
 			<div class="modal-content">
 				<form>
 					<div class="modal-header">						
-						<h4 class="modal-title">Delete Employee</h4>
+						<h4 class="modal-title">Delete Board</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					</div>
 					<div class="modal-body">					
-						<p>Are you sure you want to delete these Records?</p>
+						<p>게시글을 삭제하시겠습니까?</p>
 						<p class="text-warning"><small>This action cannot be undone.</small></p>
 					</div>
 					<div class="modal-footer">
 						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-						<input type="submit" class="btn btn-danger" value="Delete">
+						<input type="button" class="btn btn-danger" value="Delete">
+						<input type="hidden" id="delMember_id">
 					</div>
 				</form>
 			</div>
 		</div>
 	</div>
 </body>
+<script>
+$("input[value='Delete']").click(function(){
+	var board_id=$("#delBoard_id").val();
+	
+	$.ajax({
+		url:"/admin/board/delete",
+		type:"POST",
+		data:{
+			"board_id" : board_id
+		},
+		success : function(result){
+			location.href="/admin/board/list";
+		}
+	});
+});
+
+function deleteBoard(board_id){
+	$("#delBoard_id").val(board_id);
+}
+</script>
 </html>

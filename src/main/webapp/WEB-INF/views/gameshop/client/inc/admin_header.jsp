@@ -18,12 +18,6 @@
                             <a href="index.html"><img src="/resources/client/img/core-img/banner.png" alt="" width="300" height="100" ></a>
                         </div>
                         <!-- Cart & Menu Area -->
-                        <div class="header-cart-menu d-flex align-items-center ml-auto">
-                            <!-- ì¥ë°êµ¬ë -->
-                            <div class="cart">
-                                <a href="#" id="header-cart-btn" target="_blank"><i class="ti-bag"></i>장바구니</a>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -47,21 +41,17 @@
                             <div class="collapse navbar-collapse align-items-start collapse" id="karl-navbar">
                                 <ul class="navbar-nav animated" id="nav">
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="#" id="karlDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Game</a>
+                                        <a class="nav-link dropdown-toggle" href="#" id="karlDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">게임 관리</a>
                                         <div class="dropdown-menu" aria-labelledby="karlDropdown">
                                         <!-- 클릭시 각자 맞는 장르의 상품페이지 이동 해야함  -->
-                                            <a class="dropdown-item" href="shop.html">액션</a>
-                                            <a class="dropdown-item" href="shop.html">FPS</a>
-                                            <a class="dropdown-item" href="shop.html">공포</a>
-                                            <a class="dropdown-item" href="shop.html">RPG</a>
-                                            <a class="dropdown-item" href="shop.html">시뮬레이션</a>
+                                            <a class="dropdown-item" href="/admin/game/list">게임 조회</a>
+                                            <a class="dropdown-item" href="/admin/game/regist">게임 등록</a>
                                         </div>
                                     </li>
-                                    <li class="nav-item"><a class="nav-link" href="#">커뮤니티</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="#">마이페이지</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="#">고객센터</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="/admin/member/list">회원 관리</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="/admin/board/list">게시판 관리</a></li>
                                     <!--로그인 로그아웃 구현 필요 -->
-                                    <li class="nav-item"><a class="nav-link" href="#">로그아웃</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="/client/regist">로그아웃</a></li>
                                 </ul>
                                 </ul>
                             </div>

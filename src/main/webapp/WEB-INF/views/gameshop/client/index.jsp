@@ -20,7 +20,7 @@
     <link href="/resources/client/css/responsive.css" rel="stylesheet">
 
 </head>
-
+ㄴ
 <body>
 
     <div id="wrapper">
