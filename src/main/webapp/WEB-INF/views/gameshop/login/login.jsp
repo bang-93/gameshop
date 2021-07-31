@@ -35,7 +35,7 @@
 			</div>
 
 			<!--/// 로그인 ///-->
-			<form id="login" action="/login" method="post" class="input-group">
+			<form id="login" action="/client/login" method="post" class="input-group">
 				<input type="text" class="input-field" name="mem_userid" placeholder=" ID..." required>
 				<input type="password" class="input-field" name="mem_password" placeholder=" Password..." required>
 				<input type="checkbox" class="checkbox">
