@@ -8,13 +8,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.gameshop.service.GameService;
 
 @Controller
 public class GameController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
+	private static final Logger logger = LoggerFactory.getLogger(GameController.class);
 	
 	@Autowired
 	private GameService gameService;
@@ -34,5 +37,14 @@ public class GameController {
 	}
 
 	// 게임삭제
-
+	@RequestMapping(value = "/game/delete", method = RequestMethod.POST)
+	@ResponseBody
+	public String delete(int game_id) {
+		
+		logger.info("post Game delete");
+		
+		gameService.delete(game_id);
+		
+		return "";
+	}
 }

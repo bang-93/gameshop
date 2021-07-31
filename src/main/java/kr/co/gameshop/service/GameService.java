@@ -16,7 +16,7 @@ public class GameService {
 	GameDAO gameDAO;
 	
 	public List game_selectAll() {
-		return gameDAO.game_selectAll();
+		return gameDAO.selectAll();
 	}
 
 	public void delete(int game_id) {

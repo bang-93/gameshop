@@ -4,12 +4,12 @@
 
 
 	<!-- 게임 전체 조회 -->
-	<select id="game_selectAll" resultType="Game">
+	<select id="selectAll" resultType="Game">
 		select * from game order by game_id asc
 	</select>
 	
 	<!-- 게임 삭제 -->
-	<delete id="game_delete" parameterType="int">
+	<delete id="delete" parameterType="int">
 		delete from game where game_id=#{game_id}
 	</delete>
 

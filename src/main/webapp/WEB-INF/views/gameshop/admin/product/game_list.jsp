@@ -22,16 +22,16 @@ body {
 	color: #566787;
 	background: #f5f5f5;
 	font-family: 'Varela Round', sans-serif;
-	font-size: 13px;
+	font-size: 12px;
 }
 .table-responsive {
-    margin: 30px 0;
+    margin: 10px 0;
+    overflow: visible;
 }
 .table-wrapper {
 	background: #fff;
 	padding: 20px 25px;
 	border-radius: 3px;
-	min-width: 1000px;
 	box-shadow: 0 1px 1px rgba(0,0,0,.05);
 }
 .table-title {        
@@ -117,7 +117,6 @@ table.table td i {
 	font-size: 19px;
 }
 table.table .avatar {
-	border-radius: 50%;
 	vertical-align: middle;
 	margin-right: 10px;
 }
@@ -218,7 +217,7 @@ table.table .avatar {
 }
 .modal .modal-content {
 	border-radius: 3px;
-	font-size: 14px;
+/* 	font-size: 14px; */
 }
 .modal .modal-footer {
 	background: #ecf0f1;
@@ -268,11 +267,12 @@ $(document).ready(function(){
 		}
 	});
 });
+
 </script>
 </head>
 <body>
 <%@ include file="../../client/inc/admin_header.jsp" %> 
-<div class="container-xl">
+<div class="container" style="min-width: 80%">
 	<div class="table-responsive">
 		<div class="table-wrapper">
 			<div class="table-title">
@@ -303,6 +303,7 @@ $(document).ready(function(){
 						<th>장르</th>
 						<th>출시일</th>
 						<th>용량</th>
+						<th>수정/삭제</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -316,15 +317,15 @@ $(document).ready(function(){
 						</td>
 						<td><%=game.getGame_id() %></td>
 						<td><%=game.getGame_title() %></td>
-						<td><a href="#"><img src="<%=game.getGame_img() %>" class="avatar" alt="Avatar"></a>이미지자리</td>
+						<td><a href="#"><img src="/<%=game.getGame_img() %>" class="avatar" alt="Avatar"></a></td>
 						<td><%=game.getGame_price() %></td>
-						<td class="content_hide"><%=game.getGame_content() %></td>
+						<td><%=game.getGame_content() %></td>
 						<td><%=game.getGame_genre() %></td>
 						<td><%=game.getGame_date() %></td>
 						<td><%=game.getGame_capacity() %></td>
 						<td>
 							<a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-							<a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+							<a href="#deleteEmployeeModal" onclick="deleteGame(<%= game.getGame_id()%>)" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
 						</td>
 					</tr>
 				<%} %>
@@ -424,16 +425,38 @@ $(document).ready(function(){
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 				</div>
 				<div class="modal-body">					
-					<p>Are you sure you want to delete these Records?</p>
-					<p class="text-warning"><small>This action cannot be undone.</small></p>
+					<p>회원을 삭제하시겠습니까?</p>
+					<p class="text-warning"><small></small></p>
 				</div>
 				<div class="modal-footer">
 					<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
 					<input type="submit" class="btn btn-danger" value="Delete">
+					<input type="hidden" id="delGame_id">
 				</div>
 			</form>
 		</div>
 	</div>
 </div>
 </body>
+<script type="text/javascript">
+//게임 삭제
+$("input[value='Delete']").click(function(){
+	var game_id=$("#delGame_id").val();
+	
+	$.ajax({
+		url:"/admin/game/delete",
+		type:"POST",
+		data:{
+			"game_id" : game_id
+		},
+		success : function(result){
+			location.href="/admin/game/list";
+		}
+	});
+});
+
+function deleteGame(game_id){
+	$("#delGame_id").val(game_id);
+}
+</script>
 </html>

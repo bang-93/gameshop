@@ -12,8 +12,8 @@ public class GameDAO {
 	@Autowired
 	SqlSessionTemplate sqlSessionTemplate;
 	
-	public List game_selectAll() {
-		return sqlSessionTemplate.selectList("Game.game_selectAll");
+	public List selectAll() {
+		return sqlSessionTemplate.selectList("Game.selectAll");
 	}
 	
 	public void delete(int game_id) {
