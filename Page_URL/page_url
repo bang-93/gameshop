@@ -5,3 +5,9 @@ http://localhost:~~~~/client/regist
 
 - 게임 리스트 (admin)
 http://localhost:~~~~/admin/game/list
+
+- 회원 리스트 (admin)
+http://localhost:~~~~/admin/member/list
+
+- 게시판 리스트 (admin)
+http://localhost:~~~~/admin/board/list
