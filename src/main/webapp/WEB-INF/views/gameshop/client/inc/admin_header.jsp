@@ -40,14 +40,7 @@
 
                             <div class="collapse navbar-collapse align-items-start collapse" id="karl-navbar">
                                 <ul class="navbar-nav animated" id="nav">
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="#" id="karlDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">게임 관리</a>
-                                        <div class="dropdown-menu" aria-labelledby="karlDropdown">
-                                        <!-- 클릭시 각자 맞는 장르의 상품페이지 이동 해야함  -->
-                                            <a class="dropdown-item" href="/admin/game/list">게임 조회</a>
-                                            <a class="dropdown-item" href="/admin/game/regist">게임 등록</a>
-                                        </div>
-                                    </li>
+                                    <li class="nav-item"><a class="nav-link" href="/admin/game/list">게임 관리</a></li>
                                     <li class="nav-item"><a class="nav-link" href="/admin/member/list">회원 관리</a></li>
                                     <li class="nav-item"><a class="nav-link" href="/admin/board/list">게시판 관리</a></li>
                                     <!--로그인 로그아웃 구현 필요 -->

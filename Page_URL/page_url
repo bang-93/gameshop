@@ -9,5 +9,11 @@ http://localhost:~~~~/admin/game/list
 - 회원 리스트 (admin)
 http://localhost:~~~~/admin/member/list
 
+- 회원 삭제(admin) --> view X, 삭제 처리용
+http:localhost:~~~~/admin/member/delete
+
 - 게시판 리스트 (admin)
 http://localhost:~~~~/admin/board/list
+
+- 게시판 삭제(admin) --> view X, 삭제 처리용
+http:localhost:~~~~/admin/board/delete
