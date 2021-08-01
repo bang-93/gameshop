@@ -278,13 +278,13 @@ $(document).ready(function(){
 		<div class="table-wrapper">
 			<div class="table-title">
 				<div class="row">
-					<div class="col-sm-6">
+					<div class="col-sm-3">
 						<h2><b>게임 조회</b></h2>
 					</div>
-<!-- 					<div class="col-sm-6">
-						<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Employee</span></a>
-						<a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Delete</span></a>						
-					</div> -->
+ 					<div class="col-sm-8" style="margin-left: 80px;">
+						<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>게임 등록</span></a>
+						<!-- <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Delete</span></a> -->						
+					</div>
 				</div>
 			</div>
 			<table class="table table-striped table-hover">
@@ -347,55 +347,69 @@ $(document).ready(function(){
 		</div>
 	</div>        
 </div>
-<!-- Edit Modal HTML -->
+
+<!-- Edit Modal HTML  게임 등록 -->
 <div id="addEmployeeModal" class="modal fade">
 	<div class="modal-dialog">
 		<div class="modal-content">
-			<form>
+			<form id="game_regist" action="/game/insert" method="post">
 				<div class="modal-header">						
-					<h4 class="modal-title">Add Employee</h4>
+					<h4 class="modal-title">게임 등록</h4>
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 				</div>
 				<div class="modal-body">					
 					<div class="form-group">
-						<label>Name</label>
-						<input type="text" class="form-control" required>
+						<label>게임명</label>
+						<input type="text" id="game_title_regist" name="game_title" class="form-control" required>
 					</div>
 					<div class="form-group">
-						<label>Email</label>
-						<input type="email" class="form-control" required>
+						<label>상품 이미지</label>
+						<input type="text" id="game_img_regist" name="game_img" class="form-control" required>
 					</div>
 					<div class="form-group">
-						<label>Address</label>
-						<textarea class="form-control" required></textarea>
+						<label>가격</label>
+						<input type="text" id="game_price_regist" name="game_price" class="form-control" required>
 					</div>
 					<div class="form-group">
-						<label>Phone</label>
-						<input type="text" class="form-control" required>
-					</div>					
+						<label>설명</label>
+						<textarea type="text" id="game_content_regist" name="game_content" class="form-control" required></textarea>
+					</div>			
+					<div class="form-group">
+						<label>장르</label>
+						<input type="text" id="game_genre_regist" name="game_genre" class="form-control" required>
+					</div>		
+					<div class="form-group">
+						<label>출시일</label>
+						<input type="text" id="game_date_regist" name="game_date" class="form-control" required>
+					</div>		
+					<div class="form-group">
+						<label>용량</label>
+						<input type="text" id="game_capacity_regist" name="game_capacity" class="form-control" required>
+					</div>		
 				</div>
 				<div class="modal-footer">
-					<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-					<input type="submit" class="btn btn-success" value="Add">
+					<input type="button" class="btn btn-default" data-dismiss="modal" value="취소">
+					<input type="button" class="btn btn-success" value="등록" id="insert_regist_btn">
 				</div>
 			</form>
 		</div>
 	</div>
 </div>
-<!-- Edit Modal HTML -->
+
+<!-- Edit Modal HTML 게임 정보 수정 -->
 <div id="editEmployeeModal" class="modal fade">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<form id="game_data">
 				<div class="modal-header">						
-					<h4 class="modal-title">정보 수정</h4>
+					<h4 class="modal-title">게임 정보 수정</h4>
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 				</div>
 				<input type="hidden" id="game_id" name="game_id" />
 				<div class="modal-body">					
 					<div class="form-group">
 						<label class ="" for="game_title">게임명</label>
-						<input type="text" class="form-control" id="game_title" name="game_title"/>
+						<input type="text" id="game_title" name="game_title" class="form-control"/>
 					</div>
 					<div class="form-group">
 						<label>상품 이미지</label>
@@ -423,8 +437,8 @@ $(document).ready(function(){
 					</div>					
 				</div>
 				<div class="modal-footer">
-					<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-					<input type="button" class="btn btn-info" value="Save" id="edit_save_btn">
+					<input type="button" class="btn btn-default" data-dismiss="modal" value="취소">
+					<input type="button" class="btn btn-info" value="저장" id="edit_save_btn">
 				</div>
 			</form>
 		</div>
@@ -472,16 +486,30 @@ $("input[value='Delete']").click(function(){
 	});
 });
 
-
-
 function deleteGame(game_id){
 	$("#delGame_id").val(game_id);
 }
 
+//게임 등록
+$("#insert_regist_btn").click(function(){	
+	$.ajax({
+		url:"/admin/game/insert",
+		type:"post",
+		dataType:"json",
+		data:	$("#game_regist").serialize(),		
+		success : function(result){	
+			
+			if (result==0){
+				location.href="/admin/game/list"
+			}else{
+				console.log("0이아닐떄")
+			}
+		}
+	});
+});
+
 //게임 수정
-$("#edit_save_btn").click(function(){
-	var game_id=$("#delGame_id").val();
-	
+$("#edit_save_btn").click(function(){	
 	$.ajax({
 		url:"/admin/game/update",
 		type:"post",
