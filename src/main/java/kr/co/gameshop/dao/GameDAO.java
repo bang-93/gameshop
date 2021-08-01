@@ -18,9 +18,15 @@ public class GameDAO {
 	public List selectAll() {
 		return sqlSessionTemplate.selectList("Game.selectAll");
 	}
-	// 게임 클릭 조회
-	public Game read(int game_id) {
-		return sqlSessionTemplate.selectOne("Game.read", game_id);
+	
+// 게임 클릭 조회
+//	public Game read(int game_id) {
+//		return sqlSessionTemplate.selectOne("Game.read", game_id);
+//	}
+	
+	// 게임 등록
+	public void insert(Game game) {
+		sqlSessionTemplate.insert("Game.insert", game);
 	}
 	
 	// 게임 수정

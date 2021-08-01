@@ -9,6 +9,7 @@
 	</select>
 	
 	<!-- 게임 클릭 조회 -->
+<!-- 	
 	<select id="read" parameterType="int" resultType="Game">
 		select game_id
 			, game_title
@@ -21,7 +22,27 @@
 		from game
 		where game_id=#{game_id}
 	</select>
-	
+ -->
+ 
+ 	<!-- 게임 등록 -->
+ 	<insert id="insert">
+ 		insert into game(  game_title
+ 								, game_img
+ 								, game_price
+ 								, game_content
+ 								, game_genre
+ 								, game_date
+ 								, game_capacity)
+						values( #{game_title}
+								 , #{game_img}
+								 , #{game_price}
+								 , #{game_content}
+								 , #{game_genre}
+								 , #{game_date}
+								 , #{game_capacity})
+ 	</insert>
+ 
+ 
 	<!-- 게임 상품 수정 -->
 	<update id="update" parameterType="Game">
 		update game

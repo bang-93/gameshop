@@ -38,6 +38,21 @@ public class GameController {
 		return "/gameshop/admin/product/game_list";
 	}
 	
+	// 게임 등록
+	@RequestMapping(value = "/game/insert", method = RequestMethod.POST)
+	@ResponseBody
+	public int insert(Game game) throws Exception {
+		
+		logger.info("post Game insert");
+
+		gameService.insert(game);
+		
+		logger.info("insert complete");
+		
+		return 0;
+	}
+	
+	
 	// 게임 수정	
 	@RequestMapping(value = "/game/update", method = RequestMethod.POST)
 	@ResponseBody
