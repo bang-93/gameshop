@@ -8,6 +8,33 @@
 		select * from game order by game_id asc
 	</select>
 	
+	<!-- 게임 클릭 조회 -->
+	<select id="read" parameterType="int" resultType="Game">
+		select game_id
+			, game_title
+			, game_img
+			, game_price
+			, game_content
+			, game_genre
+			, game_date
+			, game_capacity
+		from game
+		where game_id=#{game_id}
+	</select>
+	
+	<!-- 게임 상품 수정 -->
+	<update id="update" parameterType="Game">
+		update game
+			set game_title=#{game_title},
+				game_img=#{game_img},
+				game_price=#{game_price},
+				game_content=#{game_content},
+				game_genre=#{game_genre},
+				game_date=#{game_date},
+				game_capacity=#{game_capacity}
+			where game_id=#{game_id}
+	</update>
+	
 	<!-- 게임 삭제 -->
 	<delete id="delete" parameterType="int">
 		delete from game where game_id=#{game_id}

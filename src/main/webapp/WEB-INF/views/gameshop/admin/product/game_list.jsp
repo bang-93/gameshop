@@ -119,6 +119,7 @@ table.table td i {
 table.table .avatar {
 	vertical-align: middle;
 	margin-right: 10px;
+	width: 200px;
 }
 .pagination {
 	float: right;
@@ -298,33 +299,34 @@ $(document).ready(function(){
 						<th>No.</th>
 						<th>게임명</th>
 						<th>상품 이미지</th>
-						<th>가격</th>
-						<th>설명</th>
+						<th style="width: 100px">가격</th>
+						<th style="width: 320px">설명</th>
 						<th>장르</th>
-						<th>출시일</th>
+						<th style="width: 120px">출시일</th>
 						<th>용량</th>
-						<th>수정/삭제</th>
+						<th style="width: 150px">수정/삭제</th>
 					</tr>
 				</thead>
 				<tbody>
 				<%for(Game game:gameList){ %>
-					<tr>
+					<tr class="game_row">
 						<td>
 							<span class="custom-checkbox">
 								<input type="checkbox" id="checkbox1" name="options[]" value="1">
 								<label for="checkbox1"></label>
 							</span>
 						</td>
-						<td><%=game.getGame_id() %></td>
-						<td><%=game.getGame_title() %></td>
-						<td><a href="#"><img src="/<%=game.getGame_img() %>" class="avatar" alt="Avatar"></a></td>
-						<td><%=game.getGame_price() %></td>
-						<td><%=game.getGame_content() %></td>
-						<td><%=game.getGame_genre() %></td>
-						<td><%=game.getGame_date() %></td>
-						<td><%=game.getGame_capacity() %></td>
+						<td class="game_id"><%=game.getGame_id() %></td>
+						<td class="game_title"><%=game.getGame_title() %></td>
+						<td class=""><img src="/<%=game.getGame_img() %>" class="avatar" alt="Avatar"></td>
+						<input type="hidden" class="game_img" value=<%=game.getGame_img() %>>
+						<td class="game_price"><%=game.getGame_price() %></td>
+						<td class="game_content"><%=game.getGame_content() %></td>
+						<td class="game_genre"><%=game.getGame_genre() %></td>
+						<td class="game_date"><%=game.getGame_date() %></td>
+						<td class="game_capacity"><%=game.getGame_capacity() %></td>
 						<td>
-							<a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+							<a href="#editEmployeeModal" class="edit edit_click" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
 							<a href="#deleteEmployeeModal" onclick="deleteGame(<%= game.getGame_id()%>)" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
 						</td>
 					</tr>
@@ -384,37 +386,51 @@ $(document).ready(function(){
 <div id="editEmployeeModal" class="modal fade">
 	<div class="modal-dialog">
 		<div class="modal-content">
-			<form>
+			<form id="game_data">
 				<div class="modal-header">						
-					<h4 class="modal-title">Edit Employee</h4>
+					<h4 class="modal-title">정보 수정</h4>
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 				</div>
+				<input type="hidden" id="game_id" name="game_id" />
 				<div class="modal-body">					
 					<div class="form-group">
-						<label>Name</label>
-						<input type="text" class="form-control" required>
+						<label class ="" for="game_title">게임명</label>
+						<input type="text" class="form-control" id="game_title" name="game_title"/>
 					</div>
 					<div class="form-group">
-						<label>Email</label>
-						<input type="email" class="form-control" required>
+						<label>상품 이미지</label>
+						<input type="text" id="game_img" name="game_img" class="form-control" />
 					</div>
 					<div class="form-group">
-						<label>Address</label>
-						<textarea class="form-control" required></textarea>
+						<label>가격</label>
+						<input type="text" id="game_price" name="game_price" class="form-control" />
 					</div>
 					<div class="form-group">
-						<label>Phone</label>
-						<input type="text" class="form-control" required>
+						<label>설명</label>
+						<textarea type="text" id="game_content" name="game_content" class="form-control"></textarea>
+					</div>					
+					<div class="form-group">
+						<label>장르</label>
+						<input type="text"  id="game_genre" name="game_genre" class="form-control" required>
+					</div>					
+					<div class="form-group">
+						<label>출시일</label>
+						<input type="text"  id="game_date" name="game_date" class="form-control" required>
+					</div>					
+					<div class="form-group">
+						<label>용량</label>
+						<input type="text"  id="game_capacity" name="game_capacity" class="form-control" required>
 					</div>					
 				</div>
 				<div class="modal-footer">
 					<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-					<input type="submit" class="btn btn-info" value="Save">
+					<input type="button" class="btn btn-info" value="Save" id="edit_save_btn">
 				</div>
 			</form>
 		</div>
 	</div>
 </div>
+
 <!-- Delete Modal HTML -->
 <div id="deleteEmployeeModal" class="modal fade">
 	<div class="modal-dialog">
@@ -437,6 +453,7 @@ $(document).ready(function(){
 		</div>
 	</div>
 </div>
+
 </body>
 <script type="text/javascript">
 //게임 삭제
@@ -455,8 +472,73 @@ $("input[value='Delete']").click(function(){
 	});
 });
 
+
+
 function deleteGame(game_id){
 	$("#delGame_id").val(game_id);
 }
+
+//게임 수정
+$("#edit_save_btn").click(function(){
+	var game_id=$("#delGame_id").val();
+	
+	$.ajax({
+		url:"/admin/game/update",
+		type:"POST",
+		dataType:"json",
+		data:	$("#game_data").serialize(),		
+		success : function(result){
+			location.href="/admin/game/list";
+			alert(result);
+		}
+	});
+});
+
+/* //게임 수정
+var formobj = $("form[name='readForm']");
+$("edit").click(function() {
+	
+	formobj.attr("action","/admin/game/list");
+	formobj.attr("method","get");
+	formobj.submit();	
+}) */
+
+//
+$(document).on("click", ".edit_click", function(){
+	
+	$("#game_id").val(($(this).parent().parent().find(".game_id").text()))
+	$("#game_title").val(($(this).parent().parent().find(".game_title").text()))
+	$("#game_img").val(($(this).parent().parent().find(".game_img").val()))
+	$("#game_price").val(($(this).parent().parent().find(".game_price").text()))
+	$("#game_content").val(($(this).parent().parent().find(".game_content").text()))
+	$("#game_genre").val(($(this).parent().parent().find(".game_genre").text()))
+	$("#game_date").val(($(this).parent().parent().find(".game_date").text()))
+	$("#game_capacity").val(($(this).parent().parent().find(".game_capacity").text()))
+  
+});
+
+
 </script>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

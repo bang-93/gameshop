@@ -1,6 +1,7 @@
 package kr.co.gameshop.controller.admin;
 
 import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.gameshop.service.GameService;
+import kr.co.gameshop.vo.Game;
 
 @Controller
 public class GameController {
@@ -35,8 +37,21 @@ public class GameController {
 		model.addAttribute("gameList", gameList);
 		return "/gameshop/admin/product/game_list";
 	}
+	
+	// 게임 수정	
+	@RequestMapping(value = "/game/update", method = RequestMethod.POST)
+	public String update(Game game) throws Exception{
+		
+		logger.info("post Game update");
+		
+		gameService.update(game);
 
-	// 게임삭제
+		logger.info("update complete");
+		
+		return "redirect:/gameshop/admin/product/game_list";
+	}	
+
+	// 게임 삭제
 	@RequestMapping(value = "/game/delete", method = RequestMethod.POST)
 	@ResponseBody
 	public String delete(int game_id) {
