@@ -40,7 +40,8 @@ public class GameController {
 	
 	// 게임 수정	
 	@RequestMapping(value = "/game/update", method = RequestMethod.POST)
-	public String update(Game game) throws Exception{
+	@ResponseBody
+	public int update(Game game) throws Exception{
 		
 		logger.info("post Game update");
 		
@@ -48,7 +49,7 @@ public class GameController {
 
 		logger.info("update complete");
 		
-		return "redirect:/gameshop/admin/product/game_list";
+		return 0;
 	}	
 
 	// 게임 삭제

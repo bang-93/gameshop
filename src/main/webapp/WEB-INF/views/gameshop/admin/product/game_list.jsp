@@ -484,26 +484,21 @@ $("#edit_save_btn").click(function(){
 	
 	$.ajax({
 		url:"/admin/game/update",
-		type:"POST",
+		type:"post",
 		dataType:"json",
 		data:	$("#game_data").serialize(),		
 		success : function(result){
-			location.href="/admin/game/list";
-			alert(result);
+			
+			if (result==0){
+				location.href="/admin/game/list"
+			}else{
+				console.log("0이아닐떄")
+			}
 		}
 	});
 });
 
-/* //게임 수정
-var formobj = $("form[name='readForm']");
-$("edit").click(function() {
-	
-	formobj.attr("action","/admin/game/list");
-	formobj.attr("method","get");
-	formobj.submit();	
-}) */
-
-//
+//게임 정보 조회
 $(document).on("click", ".edit_click", function(){
 	
 	$("#game_id").val(($(this).parent().parent().find(".game_id").text()))
