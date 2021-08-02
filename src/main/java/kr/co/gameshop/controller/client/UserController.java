@@ -94,14 +94,13 @@ public class UserController {
 		
 		session.invalidate();
 		
-		//return "redirect:/gameshop/login/login";
-		/*
-		 * int adminLogin=userService.adminLogin(member);
-		 * 
-		 * if(adminLogin==1) { return "/gameshop/admin/member/list";//회원관리 페이지 }else {
-		 * return "/gameshop/client/index"; //메인페이지 }
-		 */
-		return "/gameshop/client/index"; 
+		  int adminLogin=userService.adminLogin();
+		  
+		  if(adminLogin==1) { 
+			  return "/gameshop/admin/member/list";//회원관리 페이지 
+		  }else {
+			  return "/gameshop/client/index"; //메인페이지 
+			
+		  	}
+		  }	 
 	}
-	
-}
