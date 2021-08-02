@@ -45,4 +45,11 @@ public class UserDAO {
 		return sqlsession.selectOne("Member.login", member);
 	}
 	
+	//관리자 로그인
+	/*
+	 * public int adminLogin(Member member) throws Exception{ int
+	 * adminLoginResult=0;
+	 * adminLoginResult=sqlsession.selectOne("Member.adminLogin",member); return
+	 * adminLoginResult; }
+	 */
 }

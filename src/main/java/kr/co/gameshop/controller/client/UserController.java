@@ -83,6 +83,7 @@ public class UserController {
 		map.put("member",login );
 		
 		return map;
+		
 	}
 	
 	// 로그아웃

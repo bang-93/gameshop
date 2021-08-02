@@ -35,4 +35,10 @@ public class UserService {
 		return userDAO.login(member);
 	}
 	
+	//관리자 로그인
+	/*
+	 * public int adminLogin(Member member) throws Exception{ int
+	 * adminLoginResult=userDAO.adminLogin(member); return adminLoginResult; }
+	 */
+	
 }
