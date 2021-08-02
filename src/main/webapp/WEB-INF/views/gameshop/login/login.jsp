@@ -86,12 +86,18 @@
 				dataType:"json",
 				data:	$("#login").serialize(),
 				success : function(result){
+					
 					if (result.member==null){ // 로그인 실패
 						alert("아이디와 비밀번호의 정보가 올바르지 않습니다. 확인해주십시오.");
 						location.href="/client/regist";
 					}else{
+						if(result.member.mem_userid=="master" && result.member.mem_password=1234){
+							alert("관리자 입니다.");
+							location.href="/admin/game/list";
+						}else{
 						alert(result.member.mem_userid+"님 환영합니다");
-						location.href="/home";
+						location.href="/home";						
+						}
 					}
 				}
 			});
