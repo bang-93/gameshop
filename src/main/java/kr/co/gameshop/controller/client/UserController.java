@@ -1,6 +1,9 @@
 package kr.co.gameshop.controller.client;
 
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -62,22 +65,37 @@ public class UserController {
 	}
 	
 	// 로그인 요청
+	@ResponseBody
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login(Member member, HttpServletRequest request, RedirectAttributes attributes) throws Exception{
-		
+	public HashMap<String, Member> login(Member member, HttpServletRequest request) throws Exception{
+		HashMap<String, Member> map=new HashMap<String, Member>();
 		logger.info("post login");
 		
 		HttpSession session = request.getSession();
-		Member login = userService.login(member);
+		Member login = userService.login(member); //회원정보
+		//게임정보
 		
 		if(login==null) {
 			session.setAttribute("member", null);
-			attributes.addFlashAttribute("msg", false);
 		}else {
 			session.setAttribute("member", login);
 		}
 		
-		return "/home";
+		map.put("member",login );
+		
+		
+		return map;
+	}
+	
+	// 로그아웃
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logout(HttpSession session)throws Exception{
+		
+		logger.info("get logout");
+		
+		session.invalidate();
+		
+		return "redirect:/gameshop/login/login";
 	}
 	
 }

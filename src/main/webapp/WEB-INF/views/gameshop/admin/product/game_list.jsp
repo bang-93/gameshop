@@ -307,7 +307,7 @@ $(document).ready(function(){
 						<th style="width: 150px">수정/삭제</th>
 					</tr>
 				</thead>
-				<tbody>
+<%-- 				<tbody>
 				<%for(Game game:gameList){ %>
 					<tr class="game_row">
 						<td>
@@ -331,7 +331,7 @@ $(document).ready(function(){
 						</td>
 					</tr>
 				<%} %>
-				</tbody>
+				</tbody> --%>
 			</table>
 			<div class="clearfix">
 				<ul class="pagination">
@@ -344,6 +344,32 @@ $(document).ready(function(){
 					<li class="page-item"><a href="#" class="page-link">Next</a></li>
 				</ul>
 			</div>
+			
+			<div class="card-footer"> 
+				<nav aria-label="Contacts Page Navigation"> 
+					<ul class="pagination justify-content-center m-0"> 
+						<c:if test="${pageMaker.prev}"> 
+							<li class="page-item">
+								<a class="page-link" href="${path}/gameshop/admin/product/listPaging?page=${pageMaker.startPage - 1}">이전</a>
+							</li> 
+						</c:if> 
+						
+						<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx"> 
+							<li class="page-item" <c:out value="${pageMaker.criteria.page == idx ? 'class=active' : ''}"/>> 
+								<a class="page-link" href="${path}/gameshop/admin/product/listPaging?page=${idx}">${idx}</a> 
+							</li> 
+						</c:forEach> 
+						
+						<c:if test="${pageMaker.next && pageMaker.endPage > 0}"> 
+							<li class="page-item">
+								<a class="page-link" href="${path}/gameshop/admin/product/listPaging?page=${pageMaker.endPage + 1}">다음</a>
+							</li> 
+						</c:if> 
+					</ul> 
+				</nav> 
+			</div>
+
+			
 		</div>
 	</div>        
 </div>
@@ -496,7 +522,7 @@ $("#insert_regist_btn").click(function(){
 		url:"/admin/game/insert",
 		type:"post",
 		dataType:"json",
-		data:	$("#game_regist").serialize(),		
+		data:	$("#game_regist").serialize(),
 		success : function(result){	
 			
 			if (result==0){
