@@ -85,8 +85,7 @@
 				type:"post",
 				dataType:"json",
 				data:	$("#login").serialize(),
-				success : function(result){
-					
+				success : function(result){		
 					if (result.member==null){ // 로그인 실패
 						alert("아이디와 비밀번호의 정보가 올바르지 않습니다. 확인해주십시오.");
 						location.href="/client/regist";
@@ -102,6 +101,7 @@
 				}
 			});
 		})
+		
 		
 		// 아이디 중복조회
 		$("#userid_check").click(function(){
