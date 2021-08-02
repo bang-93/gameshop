@@ -82,7 +82,6 @@ public class UserController {
 		}
 		map.put("member",login );
 		
-		
 		return map;
 	}
 	

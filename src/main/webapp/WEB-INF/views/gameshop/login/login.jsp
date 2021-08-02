@@ -96,7 +96,7 @@
 				}
 			});
 		})
-
+		
 		// 아이디 중복조회
 		$("#userid_check").click(function(){
 			console.log($("#userid").val() ," ---");
