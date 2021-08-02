@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import kr.co.gameshop.dao.GameDAO;
+import kr.co.gameshop.vo.Criteria;
 import kr.co.gameshop.vo.Game;
 
 @Service
@@ -38,6 +39,21 @@ public class GameService {
 	// 게임 삭제
 	public void delete(int game_id) {
 		gameDAO.delete(game_id);
+	}
+		
+// 게임 목록 조회
+//	public List<Game> list(Criteria criteria) throws Exception{
+//		return gameDAO.list(criteria);
+//	}
+	
+// 게임 총 갯수
+//	public int listCount() throws Exception{
+//		return gameDAO.listCount();
+//	}
+	
+	// 
+	public List<Game> listCriteria(Criteria criteria) throws Exception{
+		return gameDAO.listCriteria(criteria); 
 	}
 	
 }

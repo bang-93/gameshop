@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.gameshop.service.GameService;
+import kr.co.gameshop.vo.Criteria;
 import kr.co.gameshop.vo.Game;
+import kr.co.gameshop.vo.PageMaker;
 
 @Controller
 public class GameController {
@@ -78,4 +80,70 @@ public class GameController {
 		
 		return "";
 	}
+	
+// 게임 목록 조회
+//	@RequestMapping(value = "/game/page", method = RequestMethod.GET)
+//	public String list(Model model, Criteria criteria) throws Exception{
+//		
+//		logger.info("get Game list");
+//		
+//		model.addAttribute("list", gameService.list(criteria));
+//		
+//		PageMaker pageMaker = new PageMaker();
+//		pageMaker.setCriteria(criteria);
+//		pageMaker.setTotalCount(gameService.listCount());
+//		
+//		model.addAttribute("pageMaker", pageMaker);		
+//		
+//		return "game/list";		
+//	}
+	
+	//
+	@RequestMapping(value = "/listCriteria", method = RequestMethod.GET)
+	public String listCriteria(Model model, Criteria criteria) throws Exception {
+		
+		logger.info("get listCriteria");
+		
+		model.addAttribute("game", gameService.listCriteria(criteria));
+		
+		return "/gameshop/admin/product/list_criteria";
+		
+	}
+	@RequestMapping(value = "/listPaging", method = RequestMethod.GET)
+	public String listPaging(Model model, Criteria criteria) throws Exception{
+		
+		logger.info("get listCriteria");
+		
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCriteria(criteria);
+		pageMaker.setTotalCount(1000);
+		
+		model.addAttribute("game", gameService.listCriteria(criteria));
+		model.addAttribute("pageMaker", pageMaker);
+		
+		return "/gameshop/admin/product/list_paging";
+		
+	} 
+	
+	
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

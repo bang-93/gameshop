@@ -60,6 +60,58 @@
 	<delete id="delete" parameterType="int">
 		delete from game where game_id=#{game_id}
 	</delete>
+	
+	<!-- 페이징 처리 -->
+<!-- 	<select id="listPage" resultType="Game" parameterType="kr.co.gameshop.vo.Criteria">
+		SELECT  game_id, 
+		        game_title , 
+		        game_img , 
+		        game_price , 
+		        game_content , 
+		        game_genre , 
+		        game_date , 
+		        game_capacity 
+		 FROM game
+		order by game_id desc
+		limit #{page},10
+	</select> -->
+	
+	<!-- 총 갯수 조회 -->
+	<select id="listPaging" resultType="Game">
+	<![CDATA[
+			select game_id, 
+			        game_title , 
+			        game_img , 
+			        game_price , 
+			        game_content , 
+			        game_genre , 
+			        game_date , 
+			        game_capacity 
+			from game
+			where game_id>0
+			order by game_id desc
+			limit #{page},10
+	]]>
+	</select>
+	
+	<!--  -->
+	<select id="listCriteria" resultType="Game">
+	<![CDATA[
+			select game_id, 
+			        game_title , 
+			        game_img , 
+			        game_price , 
+			        game_content , 
+			        game_genre , 
+			        game_date , 
+			        game_capacity 
+			from game
+			where game_id>0
+			order by game_id desc
+			limit #{pageStart},#{perPageNum}
+	]]>
+	</select>
+	
 
 
 </mapper>

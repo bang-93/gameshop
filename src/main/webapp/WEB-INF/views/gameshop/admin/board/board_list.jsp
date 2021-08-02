@@ -1,6 +1,6 @@
 <%@page import="kr.co.gameshop.vo.Board"%>
 <%@page import="java.util.List"%>
-<%@ page contentType="text/html; charset=UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8"%>
 <%
 	List<Board> boardList=(List)request.getAttribute("boardList");
 %>
