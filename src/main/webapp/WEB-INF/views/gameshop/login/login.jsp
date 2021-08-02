@@ -35,12 +35,12 @@
 			</div>
 
 			<!--/// 로그인 ///-->
-			<form id="login" action="/client/login" method="post" class="input-group">
+			<form id="login" method="post" class="input-group">
 				<input type="text" class="input-field" name="mem_userid" placeholder=" ID..." required>
 				<input type="password" class="input-field" name="mem_password" placeholder=" Password..." required>
 				<input type="checkbox" class="checkbox">
 				<span>Remember Password</span>
-				<button class="submit">Login</button>
+				<input type="button" id="login_btn" class="submit" value="Login"/>
 			</form>
 
 			<!--/// 회원가입 ///-->
@@ -77,6 +77,26 @@
 			z.style.left = "120px";
 		}
 		
+		// 로그인 처리	
+		$("#login_btn").click(function() {
+			
+			$.ajax({
+				url:"/client/login",
+				type:"post",
+				dataType:"json",
+				data:	$("#login").serialize(),
+				success : function(result){
+					if (result.member==null){ // 로그인 실패
+						alert("아이디와 비밀번호의 정보가 올바르지 않습니다. 확인해주십시오.");
+						location.href="/client/regist";
+					}else{
+						alert(result.member.mem_userid+"님 환영합니다");
+						location.href="/home";
+					}
+				}
+			});
+		})
+
 		// 아이디 중복조회
 		$("#userid_check").click(function(){
 			console.log($("#userid").val() ," ---");
