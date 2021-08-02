@@ -35,9 +35,9 @@
 	</select>
 	
 	<!-- 관리자 로그인 -->
-<!-- 	<select id="adminLogin" resultType="Member">
+	<select id="adminLogin" resultType="Member">
 		select * from member where mem_userid=master and mem_password=1234
-	</select> -->
+	</select> 
 	
     <!-- 회원 전체 조회 -->
 	<select id="selectAll" resultType="Member">
