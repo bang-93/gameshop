@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8"%>
     <!-- Core Style CSS -->
     <link rel="stylesheet" href="/resources/client/css/core-style.css">
     <link rel="stylesheet" href="/resources/client/style.css">

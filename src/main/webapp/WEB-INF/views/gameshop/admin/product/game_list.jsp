@@ -1,6 +1,6 @@
 <%@page import="kr.co.gameshop.vo.Game"%>
 <%@page import="java.util.List"%>
-<%@ page contentType="text/html; charset=UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8"%>
 <%
    List<Game> gameList=(List)request.getAttribute("gameList");
 %>

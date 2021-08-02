@@ -1,6 +1,6 @@
 <%@page import="kr.co.gameshop.vo.Member"%>
 <%@page import="java.util.List"%>
-<%@ page contentType="text/html; charset=UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8"%>
 <%
 	List<Member> memList=(List)request.getAttribute("memList");
 %>
