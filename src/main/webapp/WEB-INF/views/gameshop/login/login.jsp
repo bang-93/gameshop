@@ -35,16 +35,16 @@
 			</div>
 
 			<!--/// 로그인 ///-->
-			<form id="login" action="/login" method="post" class="input-group">
+			<form id="login" method="post" class="input-group">
 				<input type="text" class="input-field" name="mem_userid" placeholder=" ID..." required>
 				<input type="password" class="input-field" name="mem_password" placeholder=" Password..." required>
 				<input type="checkbox" class="checkbox">
 				<span>Remember Password</span>
-				<button class="submit">Login</button>
+				<input type="button" id="login_btn" class="submit" value="Login"/>
 			</form>
 
 			<!--/// 회원가입 ///-->
-			<form id="register" action="/member/join/regist" method="post" class="input-group">
+			<form id="register" action="/user/join/regist" method="post" class="input-group">
 				<input type="text" id="userid" class="input-field-id" name="mem_userid" placeholder=" ID..." required>
 				<input type="button"  id="userid_check" class="input-field-id-check" value="중복체크"/>
 				<input type="email" class="input-field" name="mem_email" placeholder=" Email or Phone..." required>
@@ -77,6 +77,31 @@
 			z.style.left = "120px";
 		}
 		
+		// 로그인 처리	
+		$("#login_btn").click(function() {	
+			$.ajax({
+				url:"/client/login",
+				type:"post",
+				dataType:"json",
+				data:	$("#login").serialize(),
+				success : function(result){		
+					if (result.member==null){ // 로그인 실패
+						alert("아이디와 비밀번호의 정보가 올바르지 않습니다. 확인해주십시오.");
+						location.href="/client/regist";
+					}else{
+						if(result.member.mem_userid=="master" && result.member.mem_password=="1234"){
+							alert("관리자 입니다.");
+							location.href="/admin/game/list";
+						}else{
+						alert(result.member.mem_userid+"님 환영합니다");
+						location.href="/home";						
+						}
+					}
+				}
+			});
+		})
+		
+		
 		// 아이디 중복조회
 		$("#userid_check").click(function(){
 			console.log($("#userid").val() ," ---");
@@ -84,7 +109,7 @@
 					alert("아이디를 입력하세요");
 			}else{				
 				$.ajax({
-					url : "/user/useridCheck",
+					url : "/client/user/useridCheck",
 					type : "post",
 					dataType : "json",
 					data : {"mem_userid" : $("#userid").val()},
@@ -116,7 +141,7 @@
 			else if($("#user_id_check_flag").val()=="Y")
 			{
 				$.ajax({
-					url : "/user/join/regist",
+					url : "/client/user/join/regist",
 					type : "post",
 					dataType : "json",
 					data : $("#register").serialize(),
@@ -125,6 +150,7 @@
 						if(data == true){
 							
 							alert("회원가입이 완료되었습니다");
+							location.href="/client/regist";
 						}else if(data == false){
 							alert("회웝가입에 실패하였습니다. 다시 입력해주십시오.");
 							
