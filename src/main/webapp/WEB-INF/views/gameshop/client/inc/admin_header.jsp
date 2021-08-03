@@ -6,15 +6,15 @@
     <!-- Responsive CSS -->
     <link href="/resources/client/css/responsive.css" rel="stylesheet">
 <!-- ****** Header Area Start ****** -->
-<header class="header_area">
+<header class="header_area" style="margin: auto;">
     <!-- Top Header Area Start -->
     <div class="top_header_area">
         <div class="container h-100">
-            <div class="row h-100 align-items-center justify-content-end">
+            <div class="row h-100 align-items-center justify-content-end" style="margin-left: -5%">
                 <div class="col-12 col-lg-7">
                     <div class="top_single_area d-flex align-items-center">
-                        <!-- ë©ì¸ ë¡ê³  -->
-                        <div class="top_logo">
+                        <!-- 탑 로고  -->
+                        <div class="top_logo" >
                             <a href="index.html"><img src="/resources/client/img/core-img/banner.png" alt="" width="200" height="100" ></a>
                         </div>
                         <!-- Cart & Menu Area -->
