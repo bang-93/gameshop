@@ -11,7 +11,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import kr.co.gameshop.dao.GameDAO;
 import kr.co.gameshop.service.GameService;
 
 	
@@ -47,10 +49,18 @@ import kr.co.gameshop.service.GameService;
 		
 		//쇼핑 페이지 요청
 		@GetMapping("/shop/list")
-		public String getList(Model model) {
-			
+		public String getList(Model model,  @RequestParam(required = false, defaultValue="0") int game_id ) {
+			System.out.println("넘어온 id"+game_id);
 			//3
 			List gameList = gameService.game_selectAll();
+			
+			//모든 상품 가져오기, 장르가 선택 되면 해당 상품 가져가기
+			if(game_id==0) {
+				//모든 레코드
+				/* gameList=GameDAO.selectAll(); */
+			}else {
+				//소속 장르만
+			}
 			
 			//4 forwarding
 			model.addAttribute("gameList", gameList);
