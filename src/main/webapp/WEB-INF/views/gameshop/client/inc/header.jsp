@@ -50,9 +50,9 @@
                             <div class="collapse navbar-collapse align-items-start collapse" id="karl-navbar">
                                 <ul class="navbar-nav animated" id="nav">
                                     <li class="nav-item"><a class="nav-link" href="/client/shop/list">Game</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="/admin/member/list">커뮤니티</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="/admin/board/list">마이페이지</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="/admin/board/list">고객센터</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="/client/communityList">커뮤니티</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#">마이페이지</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#">고객센터</a></li>
                                     <li class="nav-item"><a class="nav-link" href="/client/regist">로그아웃</a></li>
                     <!-- Help Line -->
                     <div class="help-line">

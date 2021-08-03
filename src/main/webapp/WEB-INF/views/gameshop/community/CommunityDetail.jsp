@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html;charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -153,6 +153,7 @@
 </script>
 </head>
 <body>
+<%@ include file="../client/inc/header.jsp" %>
 <div id="wrap">
     <div id="container">
         <div class="inner">    

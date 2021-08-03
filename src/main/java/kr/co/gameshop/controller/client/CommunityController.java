@@ -40,7 +40,7 @@ public class CommunityController {
     @RequestMapping( value = "/communityDetail")
     public String boardDetail(HttpServletRequest request, HttpServletResponse response) throws Exception{
         
-        return "community/communityDetail";
+        return "/gameshop/community/CommunityDetail";
     }    
     
     /** 게시판 - 상세 조회  */
@@ -57,7 +57,7 @@ public class CommunityController {
     @RequestMapping( value = "/communityWrite")
     public String communityWrite(HttpServletRequest request, HttpServletResponse response) throws Exception{
         
-        return "community/communityWrite";
+        return "/gameshop/community/CommunityWrite";
     }
     
     /** 게시판 - 등록 */
@@ -84,7 +84,7 @@ public class CommunityController {
     @RequestMapping( value = "/communityUpdate")
     public String communityUpdate(HttpServletRequest request, HttpServletResponse response) throws Exception{
         
-        return "community/communityUpdate";
+        return "/gameshop/community/CommunityUpdate";
     }
     
     /** 게시판 - 수정 */

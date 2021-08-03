@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.co.gameshop.dao.GameDAO;
@@ -13,8 +14,8 @@ import kr.co.gameshop.vo.Game;
 @Service
 public class GameService {
 	
-	@Inject
-	GameDAO gameDAO;
+	@Autowired
+	private GameDAO gameDAO;
 	
 	// 게임 조회-
 	public List game_selectAll() {

@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html;charset=UTF-8"
     pageEncoding="UTF-8"%>
 ib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
@@ -145,6 +145,7 @@ ib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 </script>
 </head>
 <body>
+<%@ include file="../client/inc/header.jsp" %>
 <div id="wrap">
     <div id="container">
         <div class="inner">    

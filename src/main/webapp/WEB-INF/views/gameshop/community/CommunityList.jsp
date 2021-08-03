@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html;charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -19,12 +19,12 @@
     
     /** 게시판 - 상세 페이지 이동 */
     function goCommunityDetail(boardSeq){                
-        location.href = "/community/communityDetail?communitySeq="+ communitySeq;
+        location.href = "/client/communityDetail?communitySeq="+ communitySeq;
     }
     
     /** 게시판 - 작성 페이지 이동 */
     function goCommunityWrite(){        
-        location.href = "/community/communityWrite";
+        location.href = "/client/communityWrite";
     }
  
     /** 게시판 - 목록 조회  */
@@ -32,7 +32,7 @@
  
         $.ajax({    
         
-           url      : "/community/getCommunityList",
+           url      : "/client/getCommunityList",
            data     : $("#communityForm").serialize(),
            dataType : "JSON",
            cache    : false,
@@ -95,6 +95,7 @@
 </script>
 </head>
 <body>
+<%@ include file="../client/inc/header.jsp" %> 
 <div id="wrap">
     <div id="container">
         <div class="inner">        

@@ -45,17 +45,18 @@ import kr.co.gameshop.service.GameService;
 		
 		//쇼핑 페이지 요청
 		@GetMapping("/shop/list")
-		public ModelAndView getList(HttpServletRequest request, @RequestParam(required = false, defaultValue="") String game_genre) {
-			logger.info("post Game list");
+		public ModelAndView getList(HttpServletRequest request, @RequestParam(required = false) String game_genre) {
+			//logger.info("post Game list");
 			//모든 상품 가져가기, 장르 선택하면 해당 장르 상품만 가져가기
+			//System.out.println("넘어온 장르 "+game_genre);
 			List gameList=null;
 			// 3단계
-			if(game_genre=="") {
+			if(game_genre==null) {
 				gameList = gameService.game_selectAll();	
 			}else {
 				gameList=gameService.game_selectByGenre(game_genre);
 			}
-			
+			//System.out.println("전체 게임리스트 "+gameList);
 			// 4단계(forwarding)
 			ModelAndView mav=new ModelAndView("gameshop/client/shop/main");
 			mav.addObject("gameList", gameList);

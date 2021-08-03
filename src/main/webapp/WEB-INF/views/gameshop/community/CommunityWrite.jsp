@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html;charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,18 +12,15 @@
 <script type="text/javascript" src="/js/common/jquery.js"></script>
 <script type="text/javascript">
     
-    $(document).ready(function(){        
-        
-    });
         
     /** 게시판 - 목록 페이지 이동 */
     function goCommunityList(){                
-        location.href = "/community/communityList";
+        location.href = "/client/communityList";
     }
     
     /** 게시판 - 작성  */
     function insertCommunity(){
- 
+ 		alert("등록 누름");
         var communitySubject = $("#community_subject").val();
         var communityContent = $("#community_content").val();
             
@@ -44,7 +41,7 @@
                 
             $.ajax({    
                 
-               url      : "/community/insertCommunity",
+               url      : "/client/insertCommunity",
                data     : $("#communityForm").serialize(),
                dataType : "JSON",
                cache    : false,
@@ -79,6 +76,7 @@
 </script>
 </head>
 <body>
+<%@ include file="../client/inc/header.jsp" %>
 <div id="wrap">
     <div id="container">
         <div class="inner">        

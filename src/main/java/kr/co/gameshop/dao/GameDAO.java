@@ -13,7 +13,7 @@ import kr.co.gameshop.vo.Game;
 public class GameDAO {
 	
 	@Autowired
-	SqlSessionTemplate sqlSessionTemplate;
+	private SqlSessionTemplate sqlSessionTemplate;
 	
 	// 게임 조회-
 	public List selectAll() {
