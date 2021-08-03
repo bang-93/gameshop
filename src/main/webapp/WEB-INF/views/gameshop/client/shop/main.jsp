@@ -3,7 +3,6 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%
    List<Game> gameList=(List)request.getAttribute("gameList");
-
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,27 +53,13 @@
                                              <!-- Single Item -->
                                             <li data-toggle="collapse" data-target="">
                                                 <a href="#">전체보기</a>
+                                            </li>  
+                                       		<%for(Game game:gameList){%>
+                                            <li data-toggle="collapse" data-target="">
+                                                <a href="/client/shop/list?game_genre=<%=game.getGame_genre()%>"><%=game.getGame_genre()%></a>
                                             </li>
-                                            <!-- Single Item -->
-                                            <li data-toggle="collapse" data-target="#women2">
-                                                <a href="#">액션</a>
-                                            </li>
-                                            <!-- Single Item -->
-                                            <li data-toggle="collapse" data-target="#man2">
-                                                <a href="#">RPG</a>
-                                            </li>
-                                            <!-- Single Item -->
-                                            <li data-toggle="collapse" data-target="#kids2">
-                                                <a href="#">공포</a>
-                                            </li>
-                                            <!-- Single Item -->
-                                            <li data-toggle="collapse" data-target="#bags2">
-                                                <a href="#">FPS</a>
-                                            </li>
-                                            <!-- Single Item -->
-                                            <li data-toggle="collapse" data-target="#eyewear2">
-                                                <a href="#">시뮬레이션</a>
-                                            </li>
+                                            <%}%>
+                                         
                                         </ul>
                                     </div>
                                 </div>
