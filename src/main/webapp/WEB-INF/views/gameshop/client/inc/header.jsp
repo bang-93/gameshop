@@ -52,18 +52,10 @@
 
                             <div class="collapse navbar-collapse align-items-start collapse" id="karl-navbar">
                                 <ul class="navbar-nav animated" id="nav">
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="#" id="karlDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Game</a>
-                                        <div class="dropdown-menu" aria-labelledby="karlDropdown">
+                                    <li class="nav-item">
+                                        <a class="nav-item" href="#" id="karlDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Game</a>
+                                        
                                         <!-- 클릭시 각자 맞는 장르의 상품페이지 이동 해야함  -->
-                                        <%-- <% Game game : gameList %> --%>
-                                            <a class="dropdown-item" href="shop.html">액션</a>
-                                            <%-- <%}%> --%>
-                                            <a class="dropdown-item" href="shop.html">FPS</a>
-                                            <a class="dropdown-item" href="shop.html">공포</a>
-                                            <a class="dropdown-item" href="shop.html">RPG</a>
-                                            <a class="dropdown-item" href="shop.html">시뮬레이션</a>
->>>>>>> branch 'master' of https://github.com/bang-93/gameshop
                                         </div>
                                     </li>
                                     <li class="nav-item"><a class="nav-link" href="#">커뮤니티</a></li>
