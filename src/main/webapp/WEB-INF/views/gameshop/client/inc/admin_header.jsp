@@ -10,12 +10,12 @@
     <!-- Top Header Area Start -->
     <div class="top_header_area">
         <div class="container h-100">
-            <div class="row h-100 align-items-center justify-content-end" style="margin-left: -5%">
+            <div class="row h-100 align-items-center justify-content-end" style="margin-left: -13%">
                 <div class="col-12 col-lg-7">
                     <div class="top_single_area d-flex align-items-center">
                         <!-- 탑 로고  -->
                         <div class="top_logo" >
-                            <a href="index.html"><img src="/resources/client/img/core-img/banner.png" alt="" width="200" height="100" ></a>
+                            <a href="/client/main"><img src="/resources/client/img/core-img/banner.png" alt="" width="300" height="100" ></a>
                         </div>
                         <!-- Cart & Menu Area -->
                     </div>
