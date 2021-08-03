@@ -3,6 +3,7 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%
    List<Game> gameList=(List)request.getAttribute("gameList");
+
 %>
 <!DOCTYPE html>
 <html lang="en">
