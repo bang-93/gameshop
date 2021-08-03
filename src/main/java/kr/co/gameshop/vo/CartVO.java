@@ -3,7 +3,6 @@ package kr.co.gameshop.vo;
 import lombok.Data;
 
 @Data
-
 public class CartVO {
 
 	private int cartId;
@@ -14,4 +13,5 @@ public class CartVO {
 	private int productPrice;
 	private int amount;
 	private int money;
+	private int updateCart;
 }
