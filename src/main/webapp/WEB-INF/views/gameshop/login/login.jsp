@@ -94,7 +94,7 @@
 							location.href="/admin/game/list";
 						}else{
 						alert(result.member.mem_userid+"님 환영합니다");
-						location.href="/home";						
+						location.href="/client/main";						
 						}
 					}
 				}

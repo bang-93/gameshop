@@ -24,6 +24,12 @@ public class GameDAO {
 		return sqlSessionTemplate.selectList("Game.selectByGenre",game_genre);
 	}
 	
+	// 게임 디테일 조회
+	public Game read(int game_id) throws Exception{
+		
+		return sqlSessionTemplate.selectOne("Detail.read", game_id);
+	}
+	
 // 게임 클릭 조회
 //	public Game read(int game_id) {
 //		return sqlSessionTemplate.selectOne("Game.read", game_id);

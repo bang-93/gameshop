@@ -40,6 +40,18 @@ public class GameController {
 		return "/gameshop/admin/product/game_list";
 	}
 	
+	// 게임 디테일 조회
+	@RequestMapping(value = "detailView", method = RequestMethod.GET)
+	public String read(Game game, Model model) throws Exception{
+		
+		logger.info("get Game Detail");
+		
+		model.addAttribute("read", gameService.read(game.getGame_id()));
+		
+		return "/gameshop/client/detail/game_detail";
+		
+	}
+	
 	// 게임 등록
 	@RequestMapping(value = "/game/insert", method = RequestMethod.POST)
 	@ResponseBody
