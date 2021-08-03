@@ -132,13 +132,12 @@
                             <div class="row">
 								
 								<!-- 상품 리스트 시작 -->
-								
                                 <!-- Single gallery Item -->
-                                <div class="col-12 col-sm-6 col-lg-4 single_gallery_item wow fadeInUpBig" data-wow-delay="0.2s">
                                     <%for(Game game:gameList){ %>
+                                <div class="col-12 col-sm-6 col-lg-4 single_gallery_item wow fadeInUpBig" data-wow-delay="0.2s">
                                     <!-- Product Image -->
                                     <div class="product-img">
-                                        <img src="/<%=game.getGame_img() %>" class="avatar" alt="">
+                                        <img src="/<%=game.getGame_img() %>" class="" alt="">
                                         <div class="product-quicview">
                                             <a href="#" data-toggle="modal" data-target="#quickview"><i class="ti-plus"></i></a>
                                         </div>
