@@ -1,10 +1,7 @@
 
 <%@ page contentType="text/html;charset=UTF-8"%>
-<<<<<<< HEAD
 <!-- ****** Header Area Start ****** -->
 <header class="header_area">
-                                         
-=======
     <!-- Core Style CSS -->
     <link rel="stylesheet" href="/resources/client/css/core-style.css">
     <link rel="stylesheet" href="/resources/client/style.css">
@@ -25,7 +22,7 @@
                         </div>
                         <!-- Cart & Menu Area -->
                         <div class="header-cart-menu d-flex align-items-center ml-auto">
-                            <!-- ì¥ë°êµ¬ë -->
+                            <!-- 장바구니 -->
                             <div class="cart">
                                 <a href="#" id="header-cart-btn" target="_blank"><i class="ti-bag"></i>장바구니</a>
                             </div>
@@ -56,14 +53,7 @@
                                     <li class="nav-item"><a class="nav-link" href="/admin/member/list">커뮤니티</a></li>
                                     <li class="nav-item"><a class="nav-link" href="/admin/board/list">마이페이지</a></li>
                                     <li class="nav-item"><a class="nav-link" href="/admin/board/list">고객센터</a></li>
-                                    
-                                    <!--로그인 로그아웃 구현 필요 -->
                                     <li class="nav-item"><a class="nav-link" href="/client/regist">로그아웃</a></li>
-                                </ul>
-                                </ul>
-                            </div>
-                        </nav>
-                    </div>
                     <!-- Help Line -->
                     <div class="help-line">
                     </div>
