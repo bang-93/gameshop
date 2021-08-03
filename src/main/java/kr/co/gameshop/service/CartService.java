@@ -6,7 +6,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
-import kr.co.gameshop.dao.CartDAO;
+//import kr.co.gameshop.dao.CartDAO;
 import kr.co.gameshop.vo.CartVO;
 
 /**@Service
