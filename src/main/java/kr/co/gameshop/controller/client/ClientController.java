@@ -30,7 +30,7 @@ import kr.co.gameshop.service.GameService;
 			logger.info("client locale {}", locale);
 			
 			model.addAttribute("msg", "test");
-			return "home";
+			return "client/main";
 		}
 		
 		//클라이언트 메인 요청
