@@ -6,6 +6,7 @@
   	<typeAliases>
 		<typeAlias type="kr.co.gameshop.vo.Board" alias="Board"/>
 		<typeAlias type="kr.co.gameshop.vo.Game" alias="Game"/>
+		<typeAlias type="kr.co.gameshop.vo.Game" alias="Detail"/>
 		<typeAlias type="kr.co.gameshop.vo.Member" alias="Member"/>
 	</typeAliases>
 	

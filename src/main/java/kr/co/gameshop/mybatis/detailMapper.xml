@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Detail">
 
-<select id="read" parameterType="Game">
+<select id="read" parameterType="int" resultType="Detail">
 
 	select game_id
 			, game_title
