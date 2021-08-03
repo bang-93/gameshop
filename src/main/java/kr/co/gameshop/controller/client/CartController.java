@@ -5,11 +5,11 @@ import org.springframework.stereotype.Controller;
 
 import kr.co.gameshop.service.CartService;
 
-@Controller
+//@Controller
 public class CartController {
 
-	@Autowired
-	private CartService cartService;
+//	@Autowired
+//	private CartService cartService;
 	
 	//장바구니 목록 가져오기
 	
