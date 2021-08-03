@@ -3,6 +3,8 @@ package kr.co.gameshop.controller.client;
 import java.util.List;
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.gameshop.dao.GameDAO;
 import kr.co.gameshop.service.GameService;
@@ -42,15 +45,21 @@ import kr.co.gameshop.service.GameService;
 		
 		//쇼핑 페이지 요청
 		@GetMapping("/shop/list")
-		public String getList(Model model/* , @RequestParam(required = false, defaultValue="0") int game_id */) {
+		public ModelAndView getList(HttpServletRequest request, @RequestParam(required = false, defaultValue="") String game_genre) {
 			logger.info("post Game list");
-			
+			//모든 상품 가져가기, 장르 선택하면 해당 장르 상품만 가져가기
+			List gameList=null;
 			// 3단계
-			List gameList = gameService.game_selectAll();
+			if(game_genre=="") {
+				gameList = gameService.game_selectAll();	
+			}else {
+				gameList=gameService.game_selectByGenre(game_genre);
+			}
 			
-			// 4단계
-			model.addAttribute("gameList", gameList);
+			// 4단계(forwarding)
+			ModelAndView mav=new ModelAndView("gameshop/client/shop/main");
+			mav.addObject("gameList", gameList);
 			
-			return "gameshop/client/shop/main";
+			return mav;
 		}
 }

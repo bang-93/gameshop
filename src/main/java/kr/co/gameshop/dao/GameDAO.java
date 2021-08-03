@@ -20,6 +20,10 @@ public class GameDAO {
 		return sqlSessionTemplate.selectList("Game.selectAll");
 	}
 	
+	public List selectByGenre(String game_genre) {
+		return sqlSessionTemplate.selectList("Game.selectByGenre",game_genre);
+	}
+	
 // 게임 클릭 조회
 //	public Game read(int game_id) {
 //		return sqlSessionTemplate.selectOne("Game.read", game_id);
