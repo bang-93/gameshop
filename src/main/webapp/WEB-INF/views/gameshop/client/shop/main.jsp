@@ -10,7 +10,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title  -->
-    <title>Game Shop main</title>
+    <title>Game Shop List</title>
 
     <!-- Core Style CSS -->
     <link rel="stylesheet" href="/resources/client/css/core-style.css">
@@ -45,24 +45,28 @@
                                     <h6 class="mb-0">카테고리</h6>
                                     <div class="menu-list">
                                         <ul id="menu-content2" class="menu-content collapse out">
+                                             <!-- Single Item -->
+                                            <li data-toggle="collapse" data-target="">
+                                                <a href="#">전체보기</a>
+                                            </li>
                                             <!-- Single Item -->
                                             <li data-toggle="collapse" data-target="#women2">
                                                 <a href="#">액션</a>
                                             </li>
                                             <!-- Single Item -->
-                                            <li data-toggle="collapse" data-target="#man2" class="collapsed">
+                                            <li data-toggle="collapse" data-target="#man2">
                                                 <a href="#">RPG</a>
                                             </li>
                                             <!-- Single Item -->
-                                            <li data-toggle="collapse" data-target="#kids2" class="collapsed">
+                                            <li data-toggle="collapse" data-target="#kids2">
                                                 <a href="#">공포</a>
                                             </li>
                                             <!-- Single Item -->
-                                            <li data-toggle="collapse" data-target="#bags2" class="collapsed">
+                                            <li data-toggle="collapse" data-target="#bags2">
                                                 <a href="#">FPS</a>
                                             </li>
                                             <!-- Single Item -->
-                                            <li data-toggle="collapse" data-target="#eyewear2" class="collapsed">
+                                            <li data-toggle="collapse" data-target="#eyewear2">
                                                 <a href="#">시뮬레이션</a>
                                             </li>
                                         </ul>
@@ -83,37 +87,32 @@
                             </div>
 
                             <div class="widget recommended">
-                                <h6 class="widget-title mb-30">Recommended</h6>
-
                                 <div class="widget-desc">
                                     <!-- Single Recommended Product -->
                                     <div class="single-recommended-product d-flex mb-30">
                                         <div class="single-recommended-thumb mr-3">
-                                            <img src="img/product-img/product-10.jpg" alt="">
+                                            
                                         </div>
                                         <div class="single-recommended-desc">
-                                            <h6>Menâs T-shirt</h6>
-                                            <p>$ 39.99</p>
+                                            
                                         </div>
                                     </div>
                                     <!-- Single Recommended Product -->
                                     <div class="single-recommended-product d-flex mb-30">
                                         <div class="single-recommended-thumb mr-3">
-                                            <img src="img/product-img/product-11.jpg" alt="">
+                                            
                                         </div>
                                         <div class="single-recommended-desc">
-                                            <h6>Blue mini top</h6>
-                                            <p>$ 19.99</p>
+                                            
                                         </div>
                                     </div>
                                     <!-- Single Recommended Product -->
                                     <div class="single-recommended-product d-flex">
                                         <div class="single-recommended-thumb mr-3">
-                                            <img src="img/product-img/product-12.jpg" alt="">
+                                            
                                         </div>
                                         <div class="single-recommended-desc">
-                                            <h6>Womenâs T-shirt</h6>
-                                            <p>$ 39.99</p>
+                                            
                                         </div>
                                     </div>
                                 </div>
