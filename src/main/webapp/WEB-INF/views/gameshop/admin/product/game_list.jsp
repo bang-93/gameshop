@@ -287,6 +287,7 @@ $(document).ready(function(){
 					</div>
 				</div>
 			</div>
+			
 			<table class="table table-striped table-hover">
 				<thead>
 					<tr>

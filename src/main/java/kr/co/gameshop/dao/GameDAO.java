@@ -15,7 +15,7 @@ public class GameDAO {
 	@Autowired
 	SqlSessionTemplate sqlSessionTemplate;
 	
-	// 게임 조회
+	// 게임 조회-
 	public List selectAll() {
 		return sqlSessionTemplate.selectList("Game.selectAll");
 	}

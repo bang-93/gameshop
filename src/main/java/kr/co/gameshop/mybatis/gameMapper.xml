@@ -3,7 +3,7 @@
 <mapper namespace="Game">
 
 
-	<!-- 게임 전체 조회 -->
+	<!-- 게임 전체 조회입니다-->
 	<select id="selectAll" resultType="Game">
 		select * from game order by game_id asc
 	</select>

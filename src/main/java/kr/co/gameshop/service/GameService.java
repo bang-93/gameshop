@@ -16,7 +16,7 @@ public class GameService {
 	@Inject
 	GameDAO gameDAO;
 	
-	// 게임 조회
+	// 게임 조회-
 	public List game_selectAll() {
 		return gameDAO.selectAll();
 	}

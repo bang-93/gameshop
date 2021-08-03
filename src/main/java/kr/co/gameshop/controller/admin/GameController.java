@@ -25,8 +25,8 @@ public class GameController {
 	
 	@Autowired
 	private GameService gameService;
-
-	// 게임 조회
+	
+	// 게임 조회-
 	@GetMapping("/game/list")
 	public String getList(Model model) {
 		
