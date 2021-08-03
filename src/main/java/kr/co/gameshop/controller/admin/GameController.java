@@ -3,6 +3,8 @@ package kr.co.gameshop.controller.admin;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,11 +44,13 @@ public class GameController {
 	
 	// 게임 디테일 조회
 	@RequestMapping(value = "/detailView", method = RequestMethod.GET)
-	public String read(Game game, Model model) throws Exception{
-		
+	public String read(Model model, HttpServletRequest request) throws Exception{
+		int game_id=Integer.parseInt(request.getParameter("game_id"));
 		logger.info("get Game Detail");
 		
-		model.addAttribute("read", gameService.read(game.getGame_id()));
+		
+		model.addAttribute("game_info", gameService.read(game_id));
+		
 		
 		return "/gameshop/client/detail/game_detail";
 		

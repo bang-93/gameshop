@@ -144,7 +144,7 @@
                                     <div class="product-img">
                                         <img src="/<%=game.getGame_img() %>" class="" alt="">
                                         <div class="product-quicview">
-                                            <a href="#" data-toggle="modal" data-target="#quickview"><i class="ti-plus"></i></a>
+                                            <a href="/admin/detailView?game_id=<%=game.getGame_id() %>">+</a>
                                         </div>
                                     </div>
                                     <!-- Product Description -->
@@ -175,6 +175,12 @@
     <script src="/resources/client/js/plugins.js"></script>
     <!-- Active js -->
     <script src="/resources/client/js/active.js"></script>
+    
+    <script type="text/javascript">
+    
+    
+    
+    </script>
 
 </body>
 

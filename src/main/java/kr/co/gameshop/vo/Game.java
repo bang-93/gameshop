@@ -62,14 +62,14 @@ public class Game {
 	}
 	
 	
-//	public String toString() {
-//		return "Game [game_id" + game_id+
-//											", game_title"+game_title+
-//											", game_img"+game_img+
-//											", game_price"+game_price+
-//											", game_content"+game_content+
-//											", game_genre"+game_genre+
-//											", game_date"+game_date+
-//											", game_capacity"+game_capacity+"]";
-//	}
+	public String toString() {
+		return "Game [game_id" + game_id+
+											", game_title"+game_title+
+											", game_img"+game_img+
+											", game_price"+game_price+
+											", game_content"+game_content+
+											", game_genre"+game_genre+
+											", game_date"+game_date+
+											", game_capacity"+game_capacity+"]";
+	}
 }
