@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8"%>
     <!-- Core Style CSS -->
     <link rel="stylesheet" href="/resources/client/css/core-style.css">
     <link rel="stylesheet" href="/resources/client/style.css">
@@ -15,7 +15,7 @@
                     <div class="top_single_area d-flex align-items-center">
                         <!-- ë©ì¸ ë¡ê³  -->
                         <div class="top_logo">
-                            <a href="index.html"><img src="/resources/client/img/core-img/banner.png" alt="" width="300" height="100" ></a>
+                            <a href="index.html"><img src="/resources/client/img/core-img/banner.png" alt="" width="200" height="100" ></a>
                         </div>
                         <!-- Cart & Menu Area -->
                     </div>

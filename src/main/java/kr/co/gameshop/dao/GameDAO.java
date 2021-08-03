@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import kr.co.gameshop.vo.Criteria;
 import kr.co.gameshop.vo.Game;
 
 @Repository
@@ -39,5 +40,26 @@ public class GameDAO {
 		sqlSessionTemplate.delete("Game.delete", game_id);
 	}
 	
+	// 게임 목록 조회
+	public List<Game> listPaging(int	page) throws Exception{
+		
+		if(page<=0) {
+			page=1;
+		}
+		page = (page - 1)*10;
+		
+		return sqlSessionTemplate.selectList("Game.listPage", page);
+	}
+	public List<Game> listCriteria(Criteria criteria) throws Exception{
+		return sqlSessionTemplate.selectList("Game.listCriteria", criteria);
+	}
+	
+// 게임 총 갯수
+//	public int listCount() throws Exception{
+//		return sqlSessionTemplate.selectOne("Game.listCount");
+//	}
 	
 }
+
+
+

@@ -1,6 +1,6 @@
 <%@page import="kr.co.gameshop.vo.Game"%>
 <%@page import="java.util.List"%>
-<%@ page contentType="text/html;charset=UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8"%>
 <%
    List<Game> gameList=(List)request.getAttribute("gameList");
 %>
@@ -307,7 +307,7 @@ $(document).ready(function(){
 						<th style="width: 150px">수정/삭제</th>
 					</tr>
 				</thead>
- 				<tbody>
+<%-- 				<tbody>
 				<%for(Game game:gameList){ %>
 					<tr class="game_row">
 						<td>
@@ -331,7 +331,7 @@ $(document).ready(function(){
 						</td>
 					</tr>
 				<%} %>
-				</tbody>
+				</tbody> --%>
 			</table>
 			<div class="clearfix">
 				<ul class="pagination">
@@ -344,7 +344,34 @@ $(document).ready(function(){
 					<li class="page-item"><a href="#" class="page-link">Next</a></li>
 				</ul>
 			</div>
+			
+			<div class="card-footer"> 
+				<nav aria-label="Contacts Page Navigation"> 
+					<ul class="pagination justify-content-center m-0"> 
+					
+						<c:if test="${pageMaker.prev}"> 
+							<li class="page-item">
+								<a class="page-link" href="${path}/gameshop/admin/product/listPaging?page=${pageMaker.startPage - 1}">이전</a>
+							</li> 
+						</c:if> 
 						
+						<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx"> 
+							<li class="page-item" <c:out value="${pageMaker.criteria.page == idx ? 'class=active' : ''}"/>> 
+								<a class="page-link" href="${path}/gameshop/admin/product/listPaging?page=${idx}">${idx}</a> 
+							</li> 
+						</c:forEach> 
+						
+						<c:if test="${pageMaker.next && pageMaker.endPage > 0}"> 
+							<li class="page-item">
+								<a class="page-link" href="${path}/gameshop/admin/product/listPaging?page=${pageMaker.endPage + 1}">다음</a>
+							</li> 
+						</c:if> 
+						
+					</ul> 
+				</nav> 
+			</div>
+
+			
 		</div>
 	</div>        
 </div>
@@ -471,6 +498,11 @@ $(document).ready(function(){
 
 </body>
 <script type="text/javascript">
+
+console.log("pageMaker.startPage"+pageMaker.startPage);
+console.log("pageMaker.endPage"+pageMaker.endPage);
+console.log("pageMaker.criteria.page"+pageMaker.criteria.page);
+
 //게임 삭제
 $("input[value='Delete']").click(function(){
 	var game_id=$("#delGame_id").val();
