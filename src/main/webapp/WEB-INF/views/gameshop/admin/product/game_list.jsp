@@ -543,7 +543,6 @@ $(document).on("click", ".edit_click", function(){
   
 });
 
-
 </script>
 </html>
 

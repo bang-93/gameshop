@@ -29,9 +29,11 @@ public class UserController {
 	
 	// 로그인&회원가입 화면 호출
 	@RequestMapping(value = "/regist", method = RequestMethod.GET)
-	public String getRegist() throws Exception {
+	public String getRegist(HttpSession session) throws Exception {
 
 		logger.info("get regist");
+		
+		session.invalidate();
 	
 		return "/gameshop/login/login"; // 로그인 페이지 이동
 	}
@@ -99,7 +101,7 @@ public class UserController {
 		  if(adminLogin==1) { 
 			  return "/gameshop/admin/member/list";//회원관리 페이지 
 		  }else {
-			  return "/gameshop/client/index"; //메인페이지 
+			  return "/gameshop/client/main"; //메인페이지 
 			
 		  	}
 		  }	 
