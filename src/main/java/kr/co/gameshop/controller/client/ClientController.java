@@ -36,33 +36,19 @@ import kr.co.gameshop.service.GameService;
 		//클라이언트 메인 요청
 		@GetMapping("/main")
 		public String getMain(Model model) {
-			//게임장르 담아야한다
-			
-			//3
-			List gameList = gameService.game_selectAll();
-			
-			//4 forwarding
-			model.addAttribute("gameList", gameList);
 			
 			return "gameshop/client/index";
 		}
 		
 		//쇼핑 페이지 요청
 		@GetMapping("/shop/list")
-		public String getList(Model model,  @RequestParam(required = false, defaultValue="0") int game_id ) {
-			System.out.println("넘어온 id"+game_id);
-			//3
+		public String getList(Model model/* , @RequestParam(required = false, defaultValue="0") int game_id */) {
+			logger.info("post Game list");
+			
+			// 3단계
 			List gameList = gameService.game_selectAll();
 			
-			//모든 상품 가져오기, 장르가 선택 되면 해당 상품 가져가기
-			if(game_id==0) {
-				//모든 레코드
-				/* gameList=GameDAO.selectAll(); */
-			}else {
-				//소속 장르만
-			}
-			
-			//4 forwarding
+			// 4단계
 			model.addAttribute("gameList", gameList);
 			
 			return "gameshop/client/shop/main";
