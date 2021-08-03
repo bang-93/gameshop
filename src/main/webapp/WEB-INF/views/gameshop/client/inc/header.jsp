@@ -1,4 +1,10 @@
+
 <%@ page contentType="text/html;charset=UTF-8"%>
+<<<<<<< HEAD
+<!-- ****** Header Area Start ****** -->
+<header class="header_area">
+                                         
+=======
     <!-- Core Style CSS -->
     <link rel="stylesheet" href="/resources/client/css/core-style.css">
     <link rel="stylesheet" href="/resources/client/style.css">
@@ -13,7 +19,7 @@
             <div class="row h-100 align-items-center justify-content-end">
                 <div class="col-12 col-lg-7">
                     <div class="top_single_area d-flex align-items-center">
-                        <!-- ë©ì¸ ë¡ê³  -->
+                        <!-- 베너 -->
                         <div class="top_logo">
                             <a href="index.html"><img src="/resources/client/img/core-img/banner.png" alt="" width="300" height="100" ></a>
                         </div>
@@ -50,11 +56,14 @@
                                         <a class="nav-link dropdown-toggle" href="#" id="karlDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Game</a>
                                         <div class="dropdown-menu" aria-labelledby="karlDropdown">
                                         <!-- 클릭시 각자 맞는 장르의 상품페이지 이동 해야함  -->
+                                        <%-- <% Game game : gameList %> --%>
                                             <a class="dropdown-item" href="shop.html">액션</a>
+                                            <%-- <%}%> --%>
                                             <a class="dropdown-item" href="shop.html">FPS</a>
                                             <a class="dropdown-item" href="shop.html">공포</a>
                                             <a class="dropdown-item" href="shop.html">RPG</a>
-                                            <a class="dropdown-item" href="shop.html">시뮬레이션</a>
+                                            <a class="dropdown-item" href="shop.html">시뮬레이션</a>
+>>>>>>> branch 'master' of https://github.com/bang-93/gameshop
                                         </div>
                                     </li>
                                     <li class="nav-item"><a class="nav-link" href="#">커뮤니티</a></li>

@@ -8,6 +8,11 @@
 		select * from game order by game_id asc
 	</select>
 	
+	<!--장르에 소속된 상품 목록-->
+	<select id="selectByGenre" parameterType="String" resultType="Game">
+		select * from game where game_genre=#{game_genre}
+	</select>
+	
 	<!-- 게임 클릭 조회 -->
 <!-- 	
 	<select id="read" parameterType="int" resultType="Game">

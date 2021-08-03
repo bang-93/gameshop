@@ -20,7 +20,11 @@
     <link href="/resources/client/css/responsive.css" rel="stylesheet">
 
 </head>
+<<<<<<< HEAD
+
+=======
 ㄴ
+>>>>>>> branch 'master' of https://github.com/bang-93/gameshop
 <body>
 
     <div id="wrapper">
