@@ -41,7 +41,7 @@ public class GameController {
 	}
 	
 	// 게임 디테일 조회
-	@RequestMapping(value = "detailView", method = RequestMethod.GET)
+	@RequestMapping(value = "/detailView", method = RequestMethod.GET)
 	public String read(Game game, Model model) throws Exception{
 		
 		logger.info("get Game Detail");
