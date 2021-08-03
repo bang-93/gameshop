@@ -17,3 +17,9 @@ http://localhost:~~~~/admin/board/list
 
 - 게시판 삭제(admin) --> view X, 삭제 처리용
 http:localhost:~~~~/admin/board/delete
+
+- 홈 페이지(client) //
+http://localhost:~~~~/client/main
+
+- 게임 목록 페이지(client) // 상품나열 
+http://localhost:~~~/client/shop/list

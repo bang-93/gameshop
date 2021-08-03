@@ -94,7 +94,7 @@
 							location.href="/admin/game/list";
 						}else{
 						alert(result.member.mem_userid+"님 환영합니다");
-						location.href="/home";						
+						location.href="/client/main";						
 						}
 					}
 				}
@@ -152,7 +152,7 @@
 							alert("회원가입이 완료되었습니다");
 							location.href="/client/regist";
 						}else if(data == false){
-							alert("회웝가입에 실패하였습니다. 다시 입력해주십시오.");
+							alert("회원가입에 실패하였습니다. 다시 입력해주십시오.");
 							
 						}
 					}

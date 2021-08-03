@@ -2,6 +2,7 @@ package kr.co.gameshop.service;
 
 import java.util.List;
 
+<<<<<<< HEAD
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
@@ -42,4 +43,15 @@ public class CartService {
 	public void updateCart(CartVO vo) {
 		cartDao.updateCart(vo);
 	}
+=======
+import kr.co.gameshop.vo.Cart;
+
+public interface CartService {
+	public void insert(Cart cart);
+	public List selectAll();
+	public List selectAllJoin(int member_id);
+	public void update(Cart cart);
+	public void delete(int cart_id);
+	public void deleteAll(int member_id);
+>>>>>>> branch 'master' of https://github.com/bang-93/gameshop
 }

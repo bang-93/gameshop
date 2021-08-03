@@ -16,10 +16,21 @@ public class GameService {
 	@Inject
 	GameDAO gameDAO;
 	
-	// 게임 조회
+	// 게임 조회-
 	public List game_selectAll() {
 		return gameDAO.selectAll();
 	}
+	
+	public List game_selectByGenre(String game_genre) {
+		return gameDAO.selectByGenre(game_genre);
+	}
+	
+	// 게임 디테일 조회
+	public Game read(int game_id) throws Exception{
+		
+		return gameDAO.read(game_id);
+	}
+	
 	
 // 게임 클릭 조회
 //	public Game read(int game_id) {

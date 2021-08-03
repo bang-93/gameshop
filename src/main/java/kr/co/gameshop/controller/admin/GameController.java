@@ -25,8 +25,8 @@ public class GameController {
 	
 	@Autowired
 	private GameService gameService;
-
-	// 게임 조회
+	
+	// 게임 조회-
 	@GetMapping("/game/list")
 	public String getList(Model model) {
 		
@@ -38,6 +38,18 @@ public class GameController {
 		// 4단계
 		model.addAttribute("gameList", gameList);
 		return "/gameshop/admin/product/game_list";
+	}
+	
+	// 게임 디테일 조회
+	@RequestMapping(value = "/detailView", method = RequestMethod.GET)
+	public String read(Game game, Model model) throws Exception{
+		
+		logger.info("get Game Detail");
+		
+		model.addAttribute("read", gameService.read(game.getGame_id()));
+		
+		return "/gameshop/client/detail/game_detail";
+		
 	}
 	
 	// 게임 등록

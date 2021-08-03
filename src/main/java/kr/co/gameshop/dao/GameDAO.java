@@ -15,9 +15,19 @@ public class GameDAO {
 	@Autowired
 	SqlSessionTemplate sqlSessionTemplate;
 	
-	// 게임 조회
+	// 게임 조회-
 	public List selectAll() {
 		return sqlSessionTemplate.selectList("Game.selectAll");
+	}
+	
+	public List selectByGenre(String game_genre) {
+		return sqlSessionTemplate.selectList("Game.selectByGenre",game_genre);
+	}
+	
+	// 게임 디테일 조회
+	public Game read(int game_id) throws Exception{
+		
+		return sqlSessionTemplate.selectOne("Detail.read", game_id);
 	}
 	
 // 게임 클릭 조회

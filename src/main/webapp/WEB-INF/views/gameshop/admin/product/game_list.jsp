@@ -1,8 +1,9 @@
-<%@page import="kr.co.gameshop.vo.Game"%>
+<%@page import="kr.co.gameshop.vo.Game" %>
 <%@page import="java.util.List"%>
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%
    List<Game> gameList=(List)request.getAttribute("gameList");
+
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,9 +12,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Game Shop 관리자 페이지 - 게임 상품</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
@@ -287,6 +288,7 @@ $(document).ready(function(){
 					</div>
 				</div>
 			</div>
+			
 			<table class="table table-striped table-hover">
 				<thead>
 					<tr>
@@ -540,7 +542,6 @@ $(document).on("click", ".edit_click", function(){
 	$("#game_capacity").val(($(this).parent().parent().find(".game_capacity").text()))
   
 });
-
 
 </script>
 </html>

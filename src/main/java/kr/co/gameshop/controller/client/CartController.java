@@ -1,5 +1,6 @@
 package kr.co.gameshop.controller.client;
 
+<<<<<<< HEAD
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -77,4 +78,19 @@ public class CartController {
 		}
 		return"redirect:/gameshop/cart/list.do";
 	}
+=======
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import kr.co.gameshop.service.CartService;
+
+//@Controller
+public class CartController {
+
+//	@Autowired
+//	private CartService cartService;
+	
+	//장바구니 목록 가져오기
+	
+>>>>>>> branch 'master' of https://github.com/bang-93/gameshop
 }
