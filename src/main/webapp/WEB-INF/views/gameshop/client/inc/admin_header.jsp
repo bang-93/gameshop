@@ -43,9 +43,7 @@
                                     <li class="nav-item"><a class="nav-link" href="/admin/game/list">게임 관리</a></li>
                                     <li class="nav-item"><a class="nav-link" href="/admin/member/list">회원 관리</a></li>
                                     <li class="nav-item"><a class="nav-link" href="/admin/board/list">게시판 관리</a></li>
-                                    <!--로그인 로그아웃 구현 필요 -->
                                     <li class="nav-item"><a class="nav-link" href="/client/regist">로그아웃</a></li>
-                                </ul>
                                 </ul>
                             </div>
                         </nav>
@@ -57,4 +55,14 @@
             </div>
         </div>
     </div>
+    
+    
+ <script type="text/javascript">
+
+//로그아웃
+/* $("#logout_btn").click(function(){
+	location.href="admin/loout"
+}); */
+ 
+ </script>
 </header>
