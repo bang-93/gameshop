@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html;charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 <title>게시글 상세</title>
 <%    
     String communitySeq = request.getParameter("communitySeq");        
@@ -153,6 +153,7 @@
 </script>
 </head>
 <body>
+<%@ include file="../client/inc/header.jsp" %>
 <div id="wrap">
     <div id="container">
         <div class="inner">    

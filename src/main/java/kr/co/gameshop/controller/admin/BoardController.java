@@ -20,7 +20,7 @@ public class BoardController {
 	@GetMapping("/board/list")
 	public String getBoardList(Model model) {
 		//3단계
-		List boardList=boardService.selctAll();
+		List boardList=boardService.selectAll();
 		//4단계
 		model.addAttribute("boardList",boardList);
 		return "/gameshop/admin/board/board_list";

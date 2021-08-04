@@ -1,39 +1,38 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html;charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 <title>게시글 작성</title>
 <!-- 공통 CSS -->
 <link rel="stylesheet" type="text/css" href="/css/common/common.css"/>
  
 <!-- 공통 JavaScript -->
-<script type="text/javascript" src="/js/common/jquery.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
-    
-    $(document).ready(function(){        
-        
-    });
-        
+      
     /** 게시판 - 목록 페이지 이동 */
     function goCommunityList(){                
-        location.href = "/community/communityList";
+        location.href = "/client/communityList";
     }
     
     /** 게시판 - 작성  */
     function insertCommunity(){
  
-        var communitySubject = $("#community_subject").val();
+        var communitySubject = $("input[name='community_subject']").val();
+        var communityWriter = $("#community_writer").val();
         var communityContent = $("#community_content").val();
             
         if (communitySubject == ""){            
             alert("제목을 입력해주세요.");
             $("#community_subject").focus();
             return;
-        }
-        
-        if (communityContent == ""){            
+        }else if(communityWriter==""){
+            alert("작성자를 입력해주세요.");
+            $("#community_writer").focus();
+            return;
+        }else if(communityContent == ""){
             alert("내용을 입력해주세요.");
             $("#community_content").focus();
             return;
@@ -44,16 +43,21 @@
                 
             $.ajax({    
                 
-               url      : "/community/insertCommunity",
-               data     : $("#communityForm").serialize(),
+               url      : "/client/insertCommunity",
+               data     :
+            	   {
+            		   "board_title" : communitySubject,
+            		   "board_writer" : communityWriter,
+            		   "board_content" : communityContent       	   
+               },
                dataType : "JSON",
-               cache    : false,
-               async    : true,
                type     : "POST",    
-               success  : function(obj) {
-                    insertCommunityCallback(obj);                
-                },           
-               error    : function(xhr, status, error) {}
+               success  : function(result) {
+            	   //alert("등록성공");
+            	   //console.log(result);
+            	   //location.href = "/client/communityList";
+                    //insertCommunityCallback(obj);                
+                }         
                 
             });
         }
@@ -79,6 +83,7 @@
 </script>
 </head>
 <body>
+<%@ include file="../client/inc/header.jsp" %>
 <div id="wrap">
     <div id="container">
         <div class="inner">        

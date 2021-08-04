@@ -1,9 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@page import="kr.co.gameshop.vo.Board"%>
+<%@page import="java.util.List"%>
+<%@ page contentType="text/html;charset=UTF-8"%>
+<%
+	List<Board> boardList=(List)request.getAttribute("boardList");
+%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 <title>게시글 목록</title>
  
 <!-- 공통 CSS -->
@@ -24,7 +28,7 @@
     
     /** 게시판 - 작성 페이지 이동 */
     function goCommunityWrite(){        
-        location.href = "/community/communityWrite";
+        location.href = "/client/communityWrite";
     }
  
     /** 게시판 - 목록 조회  */
@@ -32,7 +36,7 @@
  
         $.ajax({    
         
-           url      : "/community/getCommunityList",
+           url      : "/client/getCommunityList",
            data     : $("#communityForm").serialize(),
            dataType : "JSON",
            cache    : false,
@@ -95,6 +99,7 @@
 </script>
 </head>
 <body>
+<%@ include file="../client/inc/header.jsp" %>
 <div id="wrap">
     <div id="container">
         <div class="inner">        
@@ -110,15 +115,22 @@
                     </colgroup>
                     <thead>        
                         <tr>
-                            <th>글번호</th>
-                            <th>제목</th>
-                            <th>조회수</th>
-                            <th>작성자</th>
-                            <th>작성일</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tbody">
-                    
+                         <th>게시글번호</th>
+							<th>제목</th>
+							<th>작성자</th>
+							<th>내용</th>
+							<th>작성일</th>
+						</tr>
+					</thead>
+					<tbody>
+							<%for(Board board:boardList){ %>
+							<td><%=board.getBoard_id()%></td>
+							<td><%=board.getBoard_title() %></td>
+							<td><%=board.getBoard_writer() %></td>
+							<td><%=board.getBoard_content() %></td>
+							<td><%=board.getBoard_date() %></td>
+							</tr>
+							<%} %>
                     </tbody>    
                 </table>
             </form>            

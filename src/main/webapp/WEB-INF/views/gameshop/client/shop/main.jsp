@@ -52,13 +52,28 @@
                                         <ul id="menu-content2" class="menu-content collapse out">
                                              <!-- Single Item -->
                                             <li data-toggle="collapse" data-target="">
-                                                <a href="#">전체보기</a>
+                                                <a href="/client/shop/list">전체보기</a>
                                             </li>  
-                                       		<%for(Game game:gameList){%>
+           									<!-- Single Item -->
                                             <li data-toggle="collapse" data-target="">
-                                                <a href="/client/shop/list?game_genre=<%=game.getGame_genre()%>"><%=game.getGame_genre()%></a>
+                                                <a href="/client/shop/list?game_genre=horror">호러</a>
                                             </li>
-                                            <%}%>
+                                             <!-- Single Item -->
+                                            <li data-toggle="collapse" data-target="">
+                                                <a href="/client/shop/list?game_genre=action">액션</a>
+                                            </li>
+                                             <!-- Single Item -->
+                                            <li data-toggle="collapse" data-target="">
+                                                <a href="/client/shop/list?game_genre=fps">fps</a>
+                                            </li>
+                                             <!-- Single Item -->
+                                            <li data-toggle="collapse" data-target="">
+                                                <a href="/client/shop/list?game_genre=rpg">rpg</a>
+                                            </li>
+                                             <!-- Single Item -->
+                                            <li data-toggle="collapse" data-target="">
+                                                <a href="/client/shop/list?game_genre=simulation">시뮬레이션</a>
+                                            </li>
                                          
                                         </ul>
                                     </div>
