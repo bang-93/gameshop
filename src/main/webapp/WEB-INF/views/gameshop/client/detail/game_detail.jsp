@@ -125,6 +125,10 @@
                                 </div>
 -->
                                 <button type="submit" name="addtocart" value="5" class="btn cart-submit d-block">장바구니에 추가</button>
+                                <!-- Wishlist -->
+	                              <div class="modal_pro_wishlist">
+	                                  <a href="wishlist.html" target="_blank"><i class="ti-heart" ></i></a>
+	                              </div>
                             </form>
 <!-- 
                             <div id="accordion" role="tablist">
@@ -151,24 +155,7 @@
         <!-- <<<<<<<<<<<<<<<<<<<< Single Product Details Area End >>>>>>>>>>>>>>>>>>>>>>>>> -->
  
                                         <!-- Add to Cart Form -->
-                                        <form class="cart" method="post">
-                                            <div class="quantity">
-                                                <span class="qty-minus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i class="fa fa-minus" aria-hidden="true"></i></span>
-
-                                                <input type="number" class="qty-text" id="qty2" step="1" min="1" max="12" name="quantity" value="1">
-
-                                                <span class="qty-plus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-plus" aria-hidden="true"></i></span>
-                                            </div>
-                                            <button type="submit" name="addtocart" value="5" class="cart-submit"></button>
-                                            <!-- Wishlist -->
-                                            <div class="modal_pro_wishlist" onClick="wish_Click()>
-                                                <a href="wishlist.html" target="_blank"><i class="ti-heart"></i></a>
-                                            </div>
-                                            <!-- Compare -->
-                                            <div class="modal_pro_compare">
-                                                <a href="compare.html" target="_blank"><i class="ti-stats-up" ></i></a>
-                                            </div>
-                                        </form>
+                                            
                                     </div>
                                 </div>
                             </div>
@@ -193,9 +180,6 @@
     <!-- Active js -->
     <script src="/resources/client/js/active.js"></script>
     
-    <script>
-    $(wishList)
-    </script>
 
 </body>
 
