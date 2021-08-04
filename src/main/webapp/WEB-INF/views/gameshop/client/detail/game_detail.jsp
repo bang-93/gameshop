@@ -2,7 +2,7 @@
 <%@page import="java.util.List"%>
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%
-   List<Game> gameList=(List)request.getAttribute("gameList");
+	Game gameInfo=(Game)request.getAttribute("game_info");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,6 +26,43 @@
 
     <!-- Responsive CSS -->
     <link href="/resources/client/css/responsive.css" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">    
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&display=swap" rel="stylesheet">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap" rel="stylesheet">
+
+<style type="text/css">
+#game_title{
+	font-family: 'East Sea Dokdo', cursive;
+	font-size: 130px;
+	margin-top: -7%;
+	margin-bottom: -5%;
+}
+#game_content{
+	font-family: 'Gowun Batang', serif;
+	font-size: 19px;
+	font-weight: bold;
+}
+#game_genre{
+	font-family: 'Gowun Batang', serif;
+	font-size: 25px;
+	margin-top: 20px;
+	text-transform: uppercase;
+}
+#game_price{
+	font-family: 'Gowun Batang', serif;
+	font-size: 25px;
+}
+#game_capacity{
+	font-family: 'Gowun Batang', serif;
+	font-size: 25px;
+	margin-bottom: 20px;
+}
+</style>
 
 </head>
 
@@ -36,7 +73,7 @@
 
         <!-- <<<<<<<<<<<<<<<<<<<< Single Product Details Area Start >>>>>>>>>>>>>>>>>>>>>>>>> -->
         <section class="single_product_details_area section_padding_0_100">
-            <div class="container">
+            <div class="container" style="min-width: 85%">
                 <div class="row">
 
                     <div class="col-12 col-md-6">
@@ -45,7 +82,7 @@
 								<!-- 상품 이미지 -->
                                 <div class="carousel-inner">
                                     <div class="carousel-item active">
-                                        <img class="d-block w-100" src="/resources/client/img/product-img/game3.jpg">
+                                        <img class="d-block w-100" src="/<%=gameInfo.getGame_img() %>">
                                     </a>
                                     </div>
                                 </div>
@@ -55,20 +92,28 @@
                     <div class="col-12 col-md-6">
                         <div class="single_product_desc">
 
-                            <h4 class="title">Long Yellow Dress</h4>
-                            <h4 class="price">가격</h4>
-                            <h4 class="content">내용</h4>
-                            <h4 class="genre">장르</h4>
-                            <h4 class="capacity">용량</h4>
+                            <input type="hidden" value=<%=gameInfo.getGame_id() %>>
 
+							<div id="game_title">
+                            	<td class="title"><%=gameInfo.getGame_title() %></td>
+							</div>							
 
-<!--                             <div class="single_product_ratings mb-15">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                            </div> -->
+							<div id="game_content" style="width: 90%">
+                            	<hr>							
+                            	<td class="content"><%=gameInfo.getGame_content() %></td>
+							</div>
+
+							<div id="game_genre">
+                            	<li>장르 : <td class="genre"> <%=gameInfo.getGame_genre() %></td></li>
+							</div>
+
+							<div id="game_price">
+                            	<li>가격 : <td class="price"> <%=gameInfo.getGame_price() %></td></li>
+							</div>
+
+							<div id="game_capacity">
+                            	<li>용량 : <td class="capacity"> <%=gameInfo.getGame_capacity() %></td></li>
+							</div>
 
                             <!-- Add to Cart Form -->
                             <form class="cart clearfix mb-50 d-flex" method="post">
@@ -78,10 +123,10 @@
                                     <input type="number" class="qty-text" id="qty" step="1" min="1" max="12" name="quantity" value="1">
                                     <span class="qty-plus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-plus" aria-hidden="true"></i></span>
                                 </div>
-                                 -->
+-->
                                 <button type="submit" name="addtocart" value="5" class="btn cart-submit d-block">Add to cart</button>
                             </form>
-
+<!-- 
                             <div id="accordion" role="tablist">
                                 <div class="card">
                                     <div class="card-header" role="tab" id="headingOne">
@@ -97,44 +142,14 @@
                                     </div>
                                 </div>
                             </div>
-
+ -->
                         </div>
                     </div>
                 </div>
             </div>
         </section>
         <!-- <<<<<<<<<<<<<<<<<<<< Single Product Details Area End >>>>>>>>>>>>>>>>>>>>>>>>> -->
-
-        <!-- ****** Quick View Modal Area Start ****** -->
-        <div class="modal fade" id="quickview" tabindex="-1" role="dialog" aria-labelledby="quickview" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <button type="button" class="close btn" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                    <div class="modal-body">
-                        <div class="quickview_body">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-12 col-lg-5">
-                                        <div class="quickview_pro_img">
-                                            <img src="/resources/client/img/product-img/product-1.jpg" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-lg-7">
-                                        <div class="quickview_pro_des">
-                                            <h4 class="title">Boutique Silk Dress</h4>
-                                            <div class="top_seller_product_rating mb-15">
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                            </div>
-                                            <h5 class="price">$120.99 <span>$130</span></h5>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia expedita quibusdam aspernatur, sapiente consectetur accusantium perspiciatis praesentium eligendi, in fugiat?</p>
-                                            <a href="#">View Full Product Details</a>
-                                        </div>
+ 
                                         <!-- Add to Cart Form -->
                                         <form class="cart" method="post">
                                             <div class="quantity">
