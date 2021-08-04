@@ -126,8 +126,10 @@
 -->
                                 <button type="submit" name="addtocart" value="5" class="btn cart-submit d-block">장바구니에 추가</button>
                                 <!-- Wishlist -->
+                                
 	                              <div class="modal_pro_wishlist">
-	                                  <a href="wishlist.html" target="_blank"><i class="ti-heart" ></i></a>
+	                              								<!-- 찜 숫자가 올라가는 자리 -->
+	                                  <a href="" target="_blank"><i class="ti-heart" >1<%-- <%=game.getGameheart()%> --%></i></a>
 	                              </div>
                             </form>
 <!-- 

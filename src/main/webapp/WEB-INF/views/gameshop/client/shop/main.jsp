@@ -49,7 +49,7 @@
                                 <div class="nav-side-menu">
                                     <h6 class="mb-0">카테고리</h6>
                                     <div class="menu-list">
-                                        <ul id="menu-content2" class="menu-content"  onClick="btn_click()">
+                                        <ul id="menu-content2" class="menu-content">
                                              <!-- Single Item -->
                                             <li>
                                                 <a href="/client/shop/list">전체보기</a>
@@ -171,13 +171,6 @@
     <!-- Active js -->
     <script src="/resources/client/js/active.js"></script>
 	
-	<script>
-	function btn_click(){
-		var color="rgb(79, 185, 255)";
-		var changeColor = document.getElementById("menu-content2");
-		changColor.style.backgroundColor = color;
-	}
-	</script>
 	
 </body>
 

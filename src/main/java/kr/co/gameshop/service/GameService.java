@@ -31,6 +31,12 @@ public class GameService {
 		return gameDAO.read(game_id);
 	}
 	
+	//하트 조회
+	public void heartCount(int game_id) throws Exception{
+		
+		gameDAO.heartCount(game_id);
+	}
+	
 	
 // 게임 클릭 조회
 //	public Game read(int game_id) {

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import kr.co.gameshop.dao.GameDAO;
 import kr.co.gameshop.service.GameService;
 import kr.co.gameshop.vo.Criteria;
 import kr.co.gameshop.vo.Game;
@@ -47,6 +48,9 @@ public class GameController {
 	public String read(Model model, HttpServletRequest request) throws Exception{
 		int game_id=Integer.parseInt(request.getParameter("game_id"));
 		logger.warn("get Game Detail");
+		
+//		gameService.heartCount(game_id);
+//		model.addAttribute("game_heart", game_id);
 		
 		model.addAttribute("game_info", gameService.read(game_id));
 		

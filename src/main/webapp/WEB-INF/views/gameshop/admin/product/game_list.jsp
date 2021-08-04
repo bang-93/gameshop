@@ -244,7 +244,6 @@ table.table .avatar {
 .modal form label {
 	font-weight: normal;
 }	
-
 </style>
 <script>
 $(document).ready(function(){
@@ -455,11 +454,11 @@ $(document).ready(function(){
 		<div class="modal-content">
 			<form>
 				<div class="modal-header">						
-					<h4 class="modal-title">Delete Employee</h4>
+					<h4 class="modal-title">Delete Game</h4>
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 				</div>
 				<div class="modal-body">					
-					<p>회원을 삭제하시겠습니까?</p>
+					<h4>게임을 삭제하시겠습니까?</h4>
 					<p class="text-warning"><small></small></p>
 				</div>
 				<div class="modal-footer">
