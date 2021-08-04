@@ -24,9 +24,13 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 	@Override
-	public void insert(Board board) {
-		boardDAO.insert(board);
+	public boolean insert(Board board) {
+		boolean flag = false;
 		
+		// 게시판 등록 성공 여부
+		flag = boardDAO.insert(board);
+		 
+		return flag;
 	}
 
 	@Override

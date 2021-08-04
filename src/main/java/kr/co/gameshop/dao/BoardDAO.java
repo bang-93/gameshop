@@ -7,6 +7,6 @@ import kr.co.gameshop.vo.Board;
 public interface BoardDAO {
 	public List selectAll();
 	public void delete(int board_id);
-	public void insert(Board board);
+	public boolean insert(Board board);
 	public void update(Board board);
 }

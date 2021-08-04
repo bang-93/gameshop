@@ -53,6 +53,14 @@
                dataType : "JSON",
                type     : "POST",    
                success  : function(result) {
+            	   console.log(result);
+            	   if(result==false){
+            		   alert("게시글 등록 실패");
+            	   }else if(result==true){
+            		   alert("게시글 등록 성공");
+					   location.href = "/client/communityList";
+            		   
+            	   }
             	   //alert("등록성공");
             	   //console.log(result);
             	   //location.href = "/client/communityList";

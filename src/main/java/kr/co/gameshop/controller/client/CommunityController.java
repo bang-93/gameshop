@@ -75,11 +75,16 @@ public class CommunityController {
 
 	/** 게시판 - 등록 */
 	@RequestMapping(value = "/insertCommunity", method = RequestMethod.POST)
-	public String insertCommunity(Board board) throws Exception {
-
-		boardService.insert(board);
-
-		return "redirect:/gameshop/community/CommunityList";
+	@ResponseBody
+	public boolean insertCommunity(Board board) throws Exception {
+		boolean flag = false;
+		
+		System.out.println("게시글 작성 요청");
+		
+		flag = boardService.insert(board);
+		
+		System.out.println(board+"-----------1---------------1--------------");
+		return flag;
 	}
 
 	/** 게시판 - 삭제 */
