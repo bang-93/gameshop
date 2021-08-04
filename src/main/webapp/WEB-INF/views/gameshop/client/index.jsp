@@ -20,11 +20,6 @@
     <link href="/resources/client/css/responsive.css" rel="stylesheet">
 
 </head>
-<<<<<<< HEAD
-
-=======
-ㄴ
->>>>>>> branch 'master' of https://github.com/bang-93/gameshop
 <body>
 
     <div id="wrapper">
@@ -36,7 +31,7 @@
         <!-- ****** list area Start ****** -->
         <section class="welcome_area">
             <div class="welcome_slides owl-carousel">
-                <!-- ì¸ì¼ -->
+                <!-- banner -->
                 <div class="single_slide height-800 bg-img background-overlay" style="background-image: url(/resources/client/img/bg-img/back1.png);">
                     <div class="container h-100">
                         <div class="row h-100 align-items-center">
@@ -51,7 +46,7 @@
                     </div>
                 </div>
 
-                <!-- ì ê· -->
+                <!-- sale -->
                 <div class="single_slide height-800 bg-img background-overlay" style="background-image: url(/resources/client/img/bg-img/back2.jpg);">
                     <div class="container h-100">
                         <div class="row h-100 align-items-center">

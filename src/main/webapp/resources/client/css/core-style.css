@@ -55,12 +55,32 @@ body {
     overflow-x: hidden;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
+/*게임목록 게임제목*/
+h4 {
+    color: #3a3a3a;
+    line-height: 1.2;
+    font-family: 'NanumGothic', sans-serif;
+    font-weight: 900;
+
+}
+/*제목 및 설명*/
 h6 {
+    color: #3a3a3a;
+    line-height: 1.2;
+    font-family: 'NanumGothic', sans-serif;
+    font-weight: 700;
+}
+
+/*주로 제목*/
+h2{
+    color: #3a3a3a;
+    line-height: 1.2;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+}
+h1,
+h3,
+h5{
     color: #3a3a3a;
     line-height: 1.2;
     font-family: 'Open Sans', sans-serif;
@@ -69,7 +89,7 @@ h6 {
 
 p {
     color: #3a3a3a;
-    font-size: 1em;
+    font-size: 5em;
     line-height: 1.5;
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
@@ -88,7 +108,7 @@ a:focus {
     outline: none;
     color: #000000;
     font-family: 'Open Sans', sans-serif;
-    font-weight: 400;
+    font-weight: 800;
 }
 
 ul,
@@ -273,8 +293,9 @@ img {
     height: 800px !important;
 }
 
+/*위로 올라가는 스크롤바*/
 #scrollUp {
-    background-color: #ff084e;
+    background-color: rgb(79, 185, 255);
     border-radius: 0;
     bottom: 0;
     box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3);
@@ -333,8 +354,8 @@ img {
 .karl-btn:focus {
     font-weight: 700;
     color: #fff;
-    background-color: #ff084e;
-    border-color: #ff084e;
+    background-color: #ffffff;
+    border-color: #ffffff;
 }
 
 /* -------------------
@@ -806,9 +827,10 @@ img {
     width: 9px;
 }
 
+/*웰컴베너 왼쪽 슬라이드 스크롤*/
 .welcome_slides.owl-carousel .owl-dot.active {
-    background-color: #ff084e;
-    border-color: #ff084e;
+    background-color: #000000;
+    border-color: #ffffff;
 }
 
 /* -----------------------------
@@ -1010,11 +1032,12 @@ img {
     z-index: 1;
 }
 
+/*커뮤니티 포인트 등 싱글베너*/
 .single_catagory_area:after {
     content: "";
     width: 100%;
     height: 100%;
-    background-color: #ff084e;
+    background-color: rgba(212, 212, 212, 0.445);
     position: absolute;
     top: 0;
     left: 0;
@@ -1036,6 +1059,7 @@ img {
 
 .catagory-content {
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    font-family: Arial, Helvetica, sans-serif;
     width: 55%;
 }
 
@@ -1128,9 +1152,10 @@ img {
     margin-top: 20px;
 }
 
+/*게임제목*/
 .product-description h4 {
     font-weight: 400;
-    color: #9f9f9f;
+    color: #000000;
     margin-bottom: 5px;
     display: block;
 }
@@ -1140,11 +1165,12 @@ img {
     margin: 0;
 }
 
+/*장바구니에 추가 버튼*/
 .product-description .add-to-cart-btn {
     margin-top: 50px;
     font-size: 12px;
     font-weight: 700;
-    color: #ff084e;
+    color: rgb(79, 185, 255);
     display: block;
 }
 
