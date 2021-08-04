@@ -31,10 +31,10 @@
                             
                             <p>
                             <!-- 간단 유저 정보 -->
-                            <div class="user">
+                            <div class="user">         
                                 <a href="#" id="header-user-btn" target="_blank"><i class="ti-user"></i>&nbsp;${member.mem_userid}, 보유 포인트 : ${member.mem_point}</a>
                             </div>
-                            </p>
+                            </p>             
                             
                         </div>
                     </div>
@@ -63,6 +63,7 @@
                                             </li>
                                             <li class="nav-item"><a class="nav-link" href="/client/communityList">커뮤니티</a></li>
                                             <li class="nav-item"><a class="nav-link" href="#"> 마이페이지</a></li>
+                                            <li class="nav-item"><a class="nav-link" href="#"> 고객센터</a></li>
                                             <li class="nav-item"><a class="nav-link" href="/client/regist">로그아웃</a></li>
                                         </ul>
                                         </ul>

@@ -14,9 +14,10 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <style>
     body {
         color: #566787;
@@ -315,7 +316,7 @@ $(document).ready(function(){
 							<td><%=board.getBoard_date() %></td>
 							<td>
 								<a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-								<a href="/admin/board/delete" onClick="deleteBoard(<%=board.getBoard_id() %>);" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+								<a href="#deleteEmployeeModal" onClick="deleteBoard(<%=board.getBoard_id() %>);" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
 							</td>
 						</tr>
 							<%} %> 
@@ -415,13 +416,12 @@ $(document).ready(function(){
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					</div>
 					<div class="modal-body">					
-						<p>게시글을 삭제하시겠습니까?</p>
-						<p class="text-warning"><small>This action cannot be undone.</small></p>
+						<h4>게시글을 삭제하시겠습니까?</h4>
 					</div>
 					<div class="modal-footer">
 						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
 						<input type="button" class="btn btn-danger" value="Delete">
-						<input type="hidden" id="delMember_id">
+						<input type="hidden" id="delBoard_id">
 					</div>
 				</form>
 			</div>
@@ -430,6 +430,7 @@ $(document).ready(function(){
 </body>
 <script>
 $("input[value='Delete']").click(function(){
+	alert("누름");
 	var board_id=$("#delBoard_id").val();
 	
 	$.ajax({
