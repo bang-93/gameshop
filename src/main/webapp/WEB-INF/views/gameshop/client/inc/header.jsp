@@ -33,7 +33,6 @@
         </div>
     </div>
     <!-- Top Header Area End -->
-<<<<<<< HEAD
         <div class="main_header_area">
                 <div class="container h-100">
                     <div class="row h-100">

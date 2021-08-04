@@ -1785,7 +1785,8 @@ img {
     color: #fff;
     font-size: 14px;
     height: 40px;
-    margin-left: 15px;
+    margin-left: 0px;
+    margin-top: 12px;
     text-transform: uppercase;
     width: 150px;
     cursor: pointer;
