@@ -700,8 +700,8 @@ img {
 .menu-content > li > a:before {
     width: 10px;
     height: 10px;
-    border: 1px solid #ff084e;
-    background-color: #ff084e;
+    border: 1px solid #858585;
+    /* background-color: #fff; */
     border-radius: 2px;
     display: inline-block;
     margin-left: 10px;
@@ -715,8 +715,8 @@ img {
 .menu-content > li.collapsed > a:before {
     width: 10px;
     height: 10px;
-    border: 1px solid #858585;
-    background-color: transparent;
+    border: 1px solid rgb(79, 185, 255);
+    /* background-color: transparent; */
     border-radius: 2px;
     display: inline-block;
     margin-left: 10px;

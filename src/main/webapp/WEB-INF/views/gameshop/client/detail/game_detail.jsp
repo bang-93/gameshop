@@ -124,7 +124,7 @@
                                     <span class="qty-plus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-plus" aria-hidden="true"></i></span>
                                 </div>
 -->
-                                <button type="submit" name="addtocart" value="5" class="btn cart-submit d-block">Add to cart</button>
+                                <button type="submit" name="addtocart" value="5" class="btn cart-submit d-block">장바구니에 추가</button>
                             </form>
 <!-- 
                             <div id="accordion" role="tablist">
@@ -159,14 +159,14 @@
 
                                                 <span class="qty-plus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-plus" aria-hidden="true"></i></span>
                                             </div>
-                                            <button type="submit" name="addtocart" value="5" class="cart-submit">Add to cart</button>
+                                            <button type="submit" name="addtocart" value="5" class="cart-submit"></button>
                                             <!-- Wishlist -->
-                                            <div class="modal_pro_wishlist">
+                                            <div class="modal_pro_wishlist" onClick="wish_Click()>
                                                 <a href="wishlist.html" target="_blank"><i class="ti-heart"></i></a>
                                             </div>
                                             <!-- Compare -->
                                             <div class="modal_pro_compare">
-                                                <a href="compare.html" target="_blank"><i class="ti-stats-up"></i></a>
+                                                <a href="compare.html" target="_blank"><i class="ti-stats-up" ></i></a>
                                             </div>
                                         </form>
                                     </div>
@@ -192,6 +192,10 @@
     <script src="/resources/client/js/plugins.js"></script>
     <!-- Active js -->
     <script src="/resources/client/js/active.js"></script>
+    
+    <script>
+    $(wishList)
+    </script>
 
 </body>
 

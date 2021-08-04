@@ -49,29 +49,29 @@
                                 <div class="nav-side-menu">
                                     <h6 class="mb-0">카테고리</h6>
                                     <div class="menu-list">
-                                        <ul id="menu-content2" class="menu-content collapse out">
+                                        <ul id="menu-content2" class="menu-content"  onClick="btn_click()">
                                              <!-- Single Item -->
-                                            <li data-toggle="collapse" data-target="">
+                                            <li>
                                                 <a href="/client/shop/list">전체보기</a>
                                             </li>  
            									<!-- Single Item -->
-                                            <li data-toggle="collapse" data-target="">
+                                            <li>
                                                 <a href="/client/shop/list?game_genre=horror">호러</a>
                                             </li>
                                              <!-- Single Item -->
-                                            <li data-toggle="collapse" data-target="">
+                                            <li>
                                                 <a href="/client/shop/list?game_genre=action">액션</a>
                                             </li>
                                              <!-- Single Item -->
-                                            <li data-toggle="collapse" data-target="">
-                                                <a href="/client/shop/list?game_genre=fps">fps</a>
+                                            <li>
+                                                <a href="/client/shop/list?game_genre=fps">FPS</a>
                                             </li>
                                              <!-- Single Item -->
-                                            <li data-toggle="collapse" data-target="">
-                                                <a href="/client/shop/list?game_genre=rpg">rpg</a>
+                                            <li>
+                                                <a href="/client/shop/list?game_genre=rpg">RPG</a>
                                             </li>
                                              <!-- Single Item -->
-                                            <li data-toggle="collapse" data-target="">
+                                            <li>
                                                 <a href="/client/shop/list?game_genre=simulation">시뮬레이션</a>
                                             </li>
                                          
@@ -170,7 +170,15 @@
     <script src="/resources/client/js/plugins.js"></script>
     <!-- Active js -->
     <script src="/resources/client/js/active.js"></script>
-
+	
+	<script>
+	function btn_click(){
+		var color="rgb(79, 185, 255)";
+		var changeColor = document.getElementById("menu-content2");
+		changColor.style.backgroundColor = color;
+	}
+	</script>
+	
 </body>
 
 </html>
