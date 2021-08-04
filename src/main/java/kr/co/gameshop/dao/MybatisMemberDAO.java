@@ -13,7 +13,6 @@ import org.springframework.stereotype.Repository;
 public class MybatisMemberDAO implements MemberDAO{
 	@Autowired
 	private SqlSessionTemplate sqlSessionTemplate;
-	private SqlSessionTemplate session;
 	
 	@Override
 	public List selectAll() {
@@ -25,16 +24,21 @@ public class MybatisMemberDAO implements MemberDAO{
 		sqlSessionTemplate.delete("Member.delete",mem_id);
 		
 	}
-
+	
+	// 포인트 지급
 	@Override
-	public void updatePoint(String mem_userid, int mem_point) throws Exception {
+	public void updatePoint(int mem_userid) {
 		
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("mem_userid", mem_userid);
-		map.put("mem_point", mem_point);
-		session.update("Member.updatePoint", map);
-		
+		System.out.println(mem_userid+" dao에서");
+		sqlSessionTemplate.update("Member.updatePoint", mem_userid);
 		
 	}
-
+	
+	//포인트조회
+	@Override
+	public int pointCheck(int mid) {
+		
+		return sqlSessionTemplate.selectOne("Member.pointCheck", mid);
+		
+	}
 }
