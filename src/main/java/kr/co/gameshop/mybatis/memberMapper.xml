@@ -27,7 +27,12 @@
     
 	<!-- 로그인 -->
 	<select id="login" resultType="Member">
-				select mem_userid, mem_password
+				select 
+					mem_id,
+					mem_userid,
+					mem_email,
+					mem_nickname,
+					mem_point
 				from member
 				where mem_userid = #{mem_userid}
 				and mem_password = #{mem_password}
@@ -49,10 +54,20 @@
 	</delete>
 	
 	<!-- 포인트 지급 -->
-	<update id="updatePoint">
-		update member set mem_point = mem_point + #{mem_point}
-		where mem_userid = #{mem_userid}
+	<update id="updatePoint" parameterType="int">
+	  <![CDATA[
+		update member set mem_point = mem_point + 15
+		where mem_id = #{mem_userid}
+		]]>
 	</update>
+	
+	<!-- 포인트조회 -->
+	<select id="pointCheck" resultType="int" parameterType="int">
+		SELECT
+			 mem_point
+		 from member 
+		 WHERE mem_id = #{mid};
+	</select>
 	
 	
 </mapper>

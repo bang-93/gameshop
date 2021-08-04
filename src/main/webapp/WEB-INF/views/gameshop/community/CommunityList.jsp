@@ -4,9 +4,10 @@
 <%
 	List<Board> boardList=(List)request.getAttribute("boardList");
 %>
+
 <!DOCTYPE html>
 <html>
-
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <head>
     <meta charset="UTF-8">
     <title>커뮤니티 게시판</title>
@@ -51,8 +52,13 @@
     }
     
     /** 게시판 - 작성 페이지 이동 */
-    function goCommunityWrite(){        
-        location.href = "/client/communityWrite";
+    function goCommunityWrite(){
+    	if($("#member_session").val()==null){
+    		alert("로그인이 필요한 페이지입니다. 로그인 해주십시오.");
+        	location.href = "/client/regist";
+    	}else{
+        	location.href = "/client/communityWrite";    		
+    	}
     }
  
     /** 게시판 - 목록 조회  */
@@ -125,6 +131,7 @@
 
 <body>
 <%@ include file="../client/inc/header.jsp" %>
+<input type="hidden" value=${member.mem_id} id="member_session" />
     <div class="ui middle aligned center aligned grid">
         <div class="column">
             <h2 class="ui teal image header">
@@ -185,7 +192,7 @@
     <script src="/coco/resources/semantic.min.js"></script>
 
     <script>
-        $(document).ready(function() {
+   /*      $(document).ready(function() {
             $.ajax({
                 type: "get",
                 url: "bbs_all",
@@ -236,7 +243,7 @@
                     ':' + ('0' + u.getUTCSeconds()).slice(-2)
             };
         });
-
+ */
     </script>
 </body>
 
