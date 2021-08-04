@@ -31,7 +31,7 @@
                             
                             <p>
                             <!-- 간단 유저 정보 -->
-                            <div class="user">
+                            <div class="user">         
                                 <a href="#" id="header-user-btn" target="_blank"><i class="ti-user"></i>&nbsp;${member.mem_userid}, 보유 포인트 : ${member.mem_point}</a>
                             </div>
                             </p>
