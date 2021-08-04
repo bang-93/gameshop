@@ -21,10 +21,21 @@
                         </div>
                         <!-- Cart & Menu Area -->
                         <div class="header-cart-menu d-flex align-items-center ml-auto">
+                        
                             <!-- 장바구니 -->
-                            <div class="cart">
-                                <a href="#" id="header-cart-btn" target="_blank"><i class="ti-bag"></i>장바구니</a>
+                            <p>
+	                            <div class="cart">
+	                                <a href="#" id="header-cart-btn" target="_blank"><i class="ti-bag"></i>장바구니&nbsp;&nbsp;</a>
+	                            </div>
+                            </p>
+                            
+                            <p>
+                            <!-- 간단 유저 정보 -->
+                            <div class="user">
+                                <a href="#" id="header-user-btn" target="_blank"><i class="ti-user"></i>&nbsp;${member.mem_userid}, 보유 포인트 : ${member.mem_point}</a>
                             </div>
+                            </p>
+                            
                         </div>
                     </div>
                 </div>
