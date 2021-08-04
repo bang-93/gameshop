@@ -40,6 +40,7 @@
 	font-family: 'East Sea Dokdo', cursive;
 	font-size: 130px;
 	margin-top: -7%;
+	margin-bottom: -5%;
 }
 
 #game_content{
@@ -50,18 +51,19 @@
 
 #game_genre{
 	font-family: 'Gowun Batang', serif;
-	font-size: 40px;
+	font-size: 25px;
 	margin-top: 20px;
+	text-transform: uppercase;
 }
 
 #game_price{
 	font-family: 'Gowun Batang', serif;
-	font-size: 40px;
+	font-size: 25px;
 }
 
 #game_capacity{
 	font-family: 'Gowun Batang', serif;
-	font-size: 40px;
+	font-size: 25px;
 	margin-bottom: 20px;
 }
 
@@ -96,24 +98,24 @@
 							<input type="hidden" value=<%=gameInfo.getGame_id() %>>
 							
 							<div id="game_title">
-                            	<td class="title"><%=gameInfo.getGame_title() %></td>
-                            	<hr>							
+                            	<td class="title"><%=gameInfo.getGame_title() %></td>					
 							</div>							
 							
 							<div id="game_content" style="width: 90%">
+								<hr>
                             	<td class="content"><%=gameInfo.getGame_content() %></td>
 							</div>
 							
 							<div id="game_genre">
-                            	<td class="genre">장르 : <%=gameInfo.getGame_genre() %></td>
+                            	<li>장르 : <td class="genre"> <%=gameInfo.getGame_genre() %></td></li>
 							</div>
 							
 							<div id="game_price">
-                            	<td class="price">가격 : <%=gameInfo.getGame_price() %></td>
+                            	<li>가격 : <td class="price"> <%=gameInfo.getGame_price() %></td></li>
 							</div>
 							
 							<div id="game_capacity">
-                            	<td class="capacity">용량 : <%=gameInfo.getGame_capacity() %></td>
+                            	<li>용량 : <td class="capacity"> <%=gameInfo.getGame_capacity() %></td></li>
 							</div>
 
                             <!-- Add to Cart Form -->
@@ -124,10 +126,10 @@
                                     <input type="number" class="qty-text" id="qty" step="1" min="1" max="12" name="quantity" value="1">
                                     <span class="qty-plus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-plus" aria-hidden="true"></i></span>
                                 </div>
-                                 -->
+-->
                                 <button type="submit" name="addtocart" value="5" class="btn cart-submit d-block">Add to cart</button>
                             </form>
-
+<!-- 
                             <div id="accordion" role="tablist">
                                 <div class="card">
                                     <div class="card-header" role="tab" id="headingOne">
@@ -143,72 +145,13 @@
                                     </div>
                                 </div>
                             </div>
-
+ -->
                         </div>
                     </div>
                 </div>
             </div>
         </section>
         <!-- <<<<<<<<<<<<<<<<<<<< Single Product Details Area End >>>>>>>>>>>>>>>>>>>>>>>>> -->
-
-        <!-- ****** Quick View Modal Area Start ****** -->
-        <div class="modal fade" id="quickview" tabindex="-1" role="dialog" aria-labelledby="quickview" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <button type="button" class="close btn" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                    <div class="modal-body">
-                        <div class="quickview_body">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-12 col-lg-5">
-                                        <div class="quickview_pro_img">
-                                            <img src="/resources/client/img/product-img/product-1.jpg" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-lg-7">
-                                        <div class="quickview_pro_des">
-                                            <h4 class="title">Boutique Silk Dress</h4>
-                                            <div class="top_seller_product_rating mb-15">
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                            </div>
-                                            <h5 class="price">$120.99 <span>$130</span></h5>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia expedita quibusdam aspernatur, sapiente consectetur accusantium perspiciatis praesentium eligendi, in fugiat?</p>
-                                            <a href="#">View Full Product Details</a>
-                                        </div>
-                                        <!-- Add to Cart Form -->
-                                        <form class="cart" method="post">
-                                            <div class="quantity">
-                                                <span class="qty-minus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i class="fa fa-minus" aria-hidden="true"></i></span>
-
-                                                <input type="number" class="qty-text" id="qty2" step="1" min="1" max="12" name="quantity" value="1">
-
-                                                <span class="qty-plus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-plus" aria-hidden="true"></i></span>
-                                            </div>
-                                            <button type="submit" name="addtocart" value="5" class="cart-submit">Add to cart</button>
-                                            <!-- Wishlist -->
-                                            <div class="modal_pro_wishlist">
-                                                <a href="wishlist.html" target="_blank"><i class="ti-heart"></i></a>
-                                            </div>
-                                            <!-- Compare -->
-                                            <div class="modal_pro_compare">
-                                                <a href="compare.html" target="_blank"><i class="ti-stats-up"></i></a>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- ****** Quick View Modal Area End ****** -->
 
     </div>
     <!-- /.wrapper end -->
