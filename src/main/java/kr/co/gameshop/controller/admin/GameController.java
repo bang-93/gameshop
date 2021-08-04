@@ -50,8 +50,9 @@ public class GameController {
 		logger.warn("get Game Detail");
 		
 //		gameService.heartCount(game_id);
+//		model.addAttribute("game_heart", game_id);
 		
-		model.addAttribute("game_heart", game_id);
+		model.addAttribute("game_info", gameService.read(game_id));
 		
 		return "/gameshop/client/detail/game_detail";
 		
