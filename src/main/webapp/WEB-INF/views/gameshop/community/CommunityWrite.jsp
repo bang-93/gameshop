@@ -2,15 +2,32 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<title>게시글 작성</title>
-<!-- 공통 CSS -->
-<link rel="stylesheet" type="text/css" href="/css/common/common.css"/>
- 
-<!-- 공통 JavaScript -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script type="text/javascript">
+    <title>게시글 작성</title>
+    <!-- css 가져오기 -->
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/semantic.min.css">
+
+    <style type="text/css">
+        body {
+            background-color: #DADADA;
+        }
+
+        body>.grid {
+            height: 100%;
+        }
+
+        .image {
+            margin-top: -100px;
+        }
+
+        .column {
+            max-width: 450px;
+        }
+
+    </style>
+    <script type="text/javascript">
       
     /** 게시판 - 목록 페이지 이동 */
     function goCommunityList(){                
@@ -24,7 +41,7 @@
         var communityWriter = $("#community_writer").val();
         var communityContent = $("#community_content").val();
             
-        if (communitySubject == ""){            
+        if (communitySubject==""){            
             alert("제목을 입력해주세요.");
             $("#community_subject").focus();
             return;
@@ -32,7 +49,7 @@
             alert("작성자를 입력해주세요.");
             $("#community_writer").focus();
             return;
-        }else if(communityContent == ""){
+        }else if(communityContent==""){
             alert("내용을 입력해주세요.");
             $("#community_content").focus();
             return;
@@ -90,41 +107,44 @@
     
 </script>
 </head>
+
 <body>
 <%@ include file="../client/inc/header.jsp" %>
-<div id="wrap">
-    <div id="container">
-        <div class="inner">        
-            <h2>게시글 작성</h2>
-            <form id="communityForm" name="communityForm">
-                <table width="100%" class="table02">
-                <caption><strong><span class="t_red">*</span> 표시는 필수입력 항목입니다.</strong></caption>
-                    <colgroup>
-                        <col width="20%">
-                        <col width="*">
-                    </colgroup>
-                    <tbody id="tbody">
-                        <tr>
-                            <th>제목<span class="t_red">*</span></th>
-                            <td><input id="community_subject" name="community_subject" value="" class="tbox01"/></td>
-                        </tr>
-                        <tr>
-                            <th>작성자<span class="t_red">*</span></th>
-                            <td><input id="community_writer" name="community_writer" value="" class="tbox01"/></td>
-                        </tr>
-                        <tr>
-                            <th>내용<span class="t_red">*</span></th>
-                            <td><textarea id="community_content" name="community_content" cols="10" rows="5" class="textarea01"></textarea></td>
-                        </tr>
-                    </tbody>
-                </table>
+    <div class="ui middle aligned center aligned grid">
+        <div class="column">
+            <h2 class="ui teal image header">
+                게시글 작성
+            </h2>
+            <form class="ui large form">
+                <div class="ui stacked segment">
+                    <div class="field">
+                        <input type="text" id="community_subject" name="community_subject" placeholder="게시글 제목" autocomplete="off" autofocus="autofocus" >
+                    </div>
+                    <div class="field">
+                        <input type="text" id="community_writer" name="community_writer" placeholder="작성자" autocomplete="off" autofocus="autofocus">
+                    </div>
+                    <div class="field">
+                        <div class="ui left icon input">
+                            <textarea style="resize: vertical;" id="community_content" name="community_content" placeholder="게시글 내용" rows="8"></textarea>
+                        </div>
+                    </div>
+                    <div class="ui fluid large teal submit button" id="write_bbs" onclick="javascript:insertCommunity();">게시글 작성하기</div>
+                </div>
+
+                <div class="ui error message"></div>
+
             </form>
-            <div class="btn_right mt15">
-                <button type="button" class="btn black mr5" onclick="javascript:goCommunityList();">목록으로</button>
-                <button type="button" class="btn black" onclick="javascript:insertCommunity();">등록하기</button>
-            </div>
+
+            <button class="ui fluid large teal submit button" onclick="javascript:goCommunityList();">뒤로가기</button>
         </div>
     </div>
-</div>
+    <!-- js 가져오기 -->
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+  
+
+    </script>
 </body>
+
 </html>
