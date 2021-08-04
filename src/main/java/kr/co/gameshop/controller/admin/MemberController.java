@@ -42,9 +42,5 @@ public class MemberController {
 		//회원목록 재요청
 		return "";
 	}
-	
-	// 포인트 지급
-	public void point(Member member) throws Exception{
-		mybatismemberDAO.updatePoint(member.getMem_userid(), 15);
-	}
+
 }
