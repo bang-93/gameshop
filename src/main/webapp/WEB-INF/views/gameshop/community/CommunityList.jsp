@@ -27,7 +27,7 @@
     }
     
     /** 게시판 - 작성 페이지 이동 */
-    function goCommunityWrite(){        
+    function goCommunityWrite(){
         location.href = "/client/communityWrite";
     }
  
