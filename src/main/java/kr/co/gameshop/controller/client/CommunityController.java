@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,13 +15,21 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import ko.co.gameshop.dto.CommunityDto;
 import ko.co.gameshop.form.CommunityForm;
+import kr.co.gameshop.dao.MemberDAO;
 import kr.co.gameshop.service.BoardService;
 import kr.co.gameshop.vo.Board;
+import kr.co.gameshop.vo.Member;
 
 @Controller
 public class CommunityController {
 	@Autowired
 	private BoardService boardService;
+	
+	@Autowired
+	private MemberDAO memberDAO;
+	
+	@Autowired
+	HttpSession httpSession;
 
 	/** 게시판 - 목록 페이지 이동 */
 	@RequestMapping(value = "/communityList", method = RequestMethod.GET)
@@ -79,12 +88,29 @@ public class CommunityController {
 	public boolean insertCommunity(Board board) throws Exception {
 		boolean flag = false;
 		
-		System.out.println("게시글 작성 요청");
+		Member memberSession=new Member();
+		memberSession=(Member) httpSession.getAttribute("member");
+		System.out.println("세션값 :::"+httpSession.getAttribute("member").toString());
+		System.out.println("memberSession :::"+memberSession.getMem_email());
+		System.out.println("게시글 작성 요청");		
+
+		flag = boardService.insert(board,memberSession.getMem_id());
 		
-		flag = boardService.insert(board);
-		
-		System.out.println(board+"-----------1---------------1--------------");
+
+
 		return flag;
+	}
+	
+	// 포인트 조회
+	@RequestMapping(value = "/checkPoint", method = RequestMethod.POST)
+	@ResponseBody
+	public int checkPoint(String mem_id) throws Exception{
+		
+		int mid=Integer.parseInt(mem_id);
+		//포인트조회
+		int point =boardService.pointInfo(mid);
+		
+		return point;
 	}
 
 	/** 게시판 - 삭제 */

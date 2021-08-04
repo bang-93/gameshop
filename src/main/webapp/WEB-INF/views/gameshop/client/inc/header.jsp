@@ -7,6 +7,7 @@
 
     <!-- Responsive CSS -->
     <link href="/resources/client/css/responsive.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <!-- ****** Header Area Start ****** -->
 <header class="header_area">
     <!-- Top Header Area Start -->
@@ -32,7 +33,8 @@
                             <p>
                             <!-- 간단 유저 정보 -->
                             <div class="user">
-                                <a href="#" id="header-user-btn" target="_blank"><i class="ti-user"></i>&nbsp;${member.mem_userid}, 보유 포인트 : ${member.mem_point}</a>
+                            <input type="hidden" id="session_mem_id" value="${member.mem_id}"/>
+                                <a href="#" id="header-user-btn" target="_blank"><i class="ti-user"></i>&nbsp;${member.mem_userid}, 보유 포인트<span id="mem_point"></span></a>
                             </div>
                             </p>
                             
@@ -76,3 +78,27 @@
                 </div>
             </div>
 </header>
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+	if($("#session_mem_id").val()!=null){
+		
+		$.ajax({
+			url:"/client/checkPoint",
+            data     : 
+     	   {
+     		   "mem_id" : $("#session_mem_id").val(), 	   
+	        },
+	        dataType : "JSON",
+			type:"post",
+			success : function(result){
+				$("#mem_point").text(" : "+result);
+			}
+		});		
+		
+	}
+	
+})
+
+</script>

@@ -440,7 +440,7 @@ $("input[value='Delete']").click(function(){
 		url:"/admin/member/delete",
 		type:"POST",
 		data:{
-			"mem_id" : mem_id
+			"mem_id" : ${member.userId}
 		},
 		success : function(result){
 			location.href="/admin/member/list";
