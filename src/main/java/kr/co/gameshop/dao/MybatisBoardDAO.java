@@ -25,8 +25,16 @@ public class MybatisBoardDAO implements BoardDAO{
 	}
 
 	@Override
-	public void insert(Board board) {
-		sqlSessionTemplate.insert("Board.insert",board);
+	public boolean insert(Board board) {
+		boolean flag = false;		
+		
+		try {
+			sqlSessionTemplate.insert("Board.insert",board);
+			flag = true;
+		} catch (Exception e) {
+			flag = false;
+		}
+		return flag;
 		
 	}
 

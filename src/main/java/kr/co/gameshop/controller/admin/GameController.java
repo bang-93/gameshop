@@ -32,7 +32,7 @@ public class GameController {
 	@GetMapping("/game/list")
 	public String getList(Model model) {
 		
-		logger.info("post Game list");
+		logger.warn("post Game list");
 		
 		// 3단계
 		List gameList = gameService.game_selectAll();
@@ -46,7 +46,7 @@ public class GameController {
 	@RequestMapping(value = "/detailView", method = RequestMethod.GET)
 	public String read(Model model, HttpServletRequest request) throws Exception{
 		int game_id=Integer.parseInt(request.getParameter("game_id"));
-		logger.info("get Game Detail");
+		logger.warn("get Game Detail");
 		
 		model.addAttribute("game_info", gameService.read(game_id));
 		
@@ -59,11 +59,11 @@ public class GameController {
 	@ResponseBody
 	public int insert(Game game) throws Exception {
 		
-		logger.info("post Game insert");
+		logger.warn("post Game insert");
 
 		gameService.insert(game);
 		
-		logger.info("insert complete");
+		logger.warn("insert complete");
 		
 		return 0;
 	}
@@ -74,11 +74,11 @@ public class GameController {
 	@ResponseBody
 	public int update(Game game) throws Exception{
 		
-		logger.info("post Game update");
+		logger.warn("post Game update");
 		
 		gameService.update(game);
 
-		logger.info("update complete");
+		logger.warn("update complete");
 		
 		return 0;
 	}	
@@ -88,7 +88,7 @@ public class GameController {
 	@ResponseBody
 	public String delete(int game_id) {
 		
-		logger.info("post Game delete");
+		logger.warn("post Game delete");
 		
 		gameService.delete(game_id);
 		
@@ -116,7 +116,7 @@ public class GameController {
 	@RequestMapping(value = "/listCriteria", method = RequestMethod.GET)
 	public String listCriteria(Model model, Criteria criteria) throws Exception {
 		
-		logger.info("get listCriteria");
+		logger.warn("get listCriteria");
 		
 		model.addAttribute("game", gameService.listCriteria(criteria));
 		
@@ -126,7 +126,7 @@ public class GameController {
 	@RequestMapping(value = "/listPaging", method = RequestMethod.GET)
 	public String listPaging(Model model, Criteria criteria) throws Exception{
 		
-		logger.info("get listCriteria");
+		logger.warn("get listCriteria");
 		
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCriteria(criteria);

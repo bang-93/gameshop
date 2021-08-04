@@ -48,4 +48,11 @@
 		delete from member where mem_id=#{mem_id}
 	</delete>
 	
+	<!-- 포인트 지급 -->
+	<update id="updatePoint">
+		update member set mem_point = mem_point + #{mem_point}
+		where mem_userid = #{mem_userid}
+	</update>
+	
+	
 </mapper>

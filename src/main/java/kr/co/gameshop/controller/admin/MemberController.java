@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import kr.co.gameshop.dao.MybatisMemberDAO;
 import kr.co.gameshop.service.MemberService;
 import kr.co.gameshop.vo.Member;
 
@@ -18,6 +19,9 @@ import kr.co.gameshop.vo.Member;
 public class MemberController {
 	@Autowired
 	private MemberService memberService;
+	
+	@Autowired
+	private MybatisMemberDAO mybatismemberDAO;
 	
 	//회원 조회
 	@GetMapping("/member/list")
@@ -37,5 +41,10 @@ public class MemberController {
 		memberService.delete(mem_id);
 		//회원목록 재요청
 		return "";
+	}
+	
+	// 포인트 지급
+	public void point(Member member) throws Exception{
+		mybatismemberDAO.updatePoint(member.getMem_userid(), 15);
 	}
 }
