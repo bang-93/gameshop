@@ -15,3 +15,8 @@ select * from game
 
 //
 select * from game where game_genre = 선택한 장르 id
+
+//
+create sequence seq_cart  
+start with 1
+increment by 1;
