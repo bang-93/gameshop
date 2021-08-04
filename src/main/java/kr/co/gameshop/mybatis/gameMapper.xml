@@ -62,7 +62,7 @@
 	</update>
 	
 	<!-- 게임 삭제 -->
-	<delete id="delete" parameterType="int" resultType="Game">
+	<delete id="delete" parameterType="int">
 		delete from game where game_id=#{game_id}
 	</delete>
 	
