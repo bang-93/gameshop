@@ -30,6 +30,11 @@ public class GameDAO {
 		return sqlSessionTemplate.selectOne("Detail.read", game_id);
 	}
 	
+	//하트 추가
+	public void heartCount(int game_id) throws Exception{
+		sqlSessionTemplate.update("Game.heartCount", game_id);
+	}
+	
 // 게임 클릭 조회
 //	public Game read(int game_id) {
 //		return sqlSessionTemplate.selectOne("Game.read", game_id);

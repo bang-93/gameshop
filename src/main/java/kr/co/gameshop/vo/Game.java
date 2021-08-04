@@ -2,7 +2,7 @@ package kr.co.gameshop.vo;
 
 import lombok.Data;
 
-
+@Data
 public class Game {
 	private int game_id;
 	private String game_title;
@@ -12,6 +12,8 @@ public class Game {
 	private String game_genre;
 	private String game_date;
 	private String game_capacity;
+	private int game_heart;
+	
 	public int getGame_id() {
 		return game_id;
 	}

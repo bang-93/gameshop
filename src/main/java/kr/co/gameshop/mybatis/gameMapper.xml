@@ -62,7 +62,7 @@
 	</update>
 	
 	<!-- 게임 삭제 -->
-	<delete id="delete" parameterType="int">
+	<delete id="delete" parameterType="int" resultType="Game">
 		delete from game where game_id=#{game_id}
 	</delete>
 	
@@ -98,6 +98,13 @@
 			limit #{page},10
 	]]>
 	</select>
+	
+	<!--게임 좋아요 누적-->
+	<update id="heartCount" parameterType="int">
+		update game
+		set game_heart = game_heart + 1
+		where game_id = #{game_id}
+	</update>
 	
 	<!--  -->
 	<select id="listCriteria" resultType="Game">
