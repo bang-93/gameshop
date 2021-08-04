@@ -7,6 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.gameshop.service.BoardService;
 import kr.co.gameshop.vo.Board;
@@ -27,11 +30,12 @@ public class BoardController {
 	}
 
 	//게시글 삭제
-	@PostMapping("/board/delete")
-	public String delete(Board board) {
+	@RequestMapping(value="/board/delete",method = RequestMethod.POST)
+	@ResponseBody
+	public String delete(int board_id) {
 		//3단계
-		boardService.delete(board.getBoard_id());
+		boardService.delete(board_id);
 
-		return "redirect:/gameshop/admin/board/board_list";
+		return "";
 	}
 }
